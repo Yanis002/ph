@@ -1,13 +1,13 @@
 #pragma once
 
 #include "global.h"
-#include "types.h"
 #include "lib/math.h"
+#include "types.h"
 
-#include "System/Resource.hpp"
 #include "Actor/Actor.hpp"
 #include "Actor/ActorType.hpp"
 #include "Item/Item.hpp"
+#include "System/Resource.hpp"
 
 typedef u32 RupeeId;
 enum RupeeId_ {
@@ -23,7 +23,7 @@ enum RupeeId_ {
 };
 
 class ActorRupee : public Actor {
-public:
+  public:
     static Resource gResource;
     static ActorType gType;
 
@@ -48,7 +48,7 @@ public:
     ItemId GetRupeeCutsceneItemId();
     void func_ov14_0213b204(unk32 param1);
     void Update(bool param1);
-    static void func_ov14_0213b5f4(RupeeId id, unk32 param2, Vec3p *param3, bool param4);
-    static void func_ov14_0213b6a4(RupeeId id, void *param2);
+    static void func_ov14_0213b5f4(RupeeId id, unk32 param2, Vec3p* param3, bool param4);
+    static void func_ov14_0213b6a4(RupeeId id, void* param2);
     static bool func_ov14_0213b70c(RupeeId id);
 };

@@ -1,19 +1,19 @@
 #pragma once
 
-#include "types.h"
 #include "Player/EquipItem.hpp"
+#include "types.h"
 
 class EquipBombchu : public EquipItem {
-private:
+  private:
     /* 00 (base) */
     /* 09 */ u8 mUnk_09[3];
     /* 0c */ u8 mUnk_0c[0x0c];
     /* 18 */ u32 mUnk_18;
-    /* 1c */ void *mUnk_1c;
-    /* 20 */ void *mUnk_20;
+    /* 1c */ void* mUnk_1c;
+    /* 20 */ void* mUnk_20;
     /* 24 */ u32 mUnk_24;
     /* 28 */ u32 mUnk_28;
-    /* 2c */ void *mUnk_2c;
+    /* 2c */ void* mUnk_2c;
     /* 30 */ u32 mUnk_30;
     /* 34 */ u32 mUnk_34;
     /* 38 */ u8 mUnk_38[0xc];
@@ -24,7 +24,7 @@ private:
     /* 49 */ unk8 mUnk_49[3];
     /* 4c */
 
-public:
+  public:
     EquipBombchu();
 
     /* 00 */ virtual void vfunc_00() override; // func_ov58_02198fc0
@@ -37,7 +37,7 @@ public:
     /* 1c */ virtual void vfunc_1c() override; // func_ov58_02199060
 
     /* 30 */ virtual void vfunc_30() override; // func_ov58_0219906c
-    /* 34 */ virtual void vfunc_34(unk16 *param1) override; // func_ov58_0213ecb4
+    /* 34 */ virtual void vfunc_34(unk16* param1) override; // func_ov58_0213ecb4
     /* 38 */ virtual void vfunc_38(unk32 param1) override; // func_ov58_02199170
     /* 50 */
 };

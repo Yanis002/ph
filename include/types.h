@@ -13,6 +13,6 @@ typedef s8 unk8;
 typedef s16 unk16;
 typedef s32 unk32;
 
-#define CEIL_DIV(a, b) (((a) + (b) - 1) / (b))
+#define CEIL_DIV(a, b) (((a) + (b)-1) / (b))
 
 #endif

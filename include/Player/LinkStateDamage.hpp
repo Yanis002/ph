@@ -10,7 +10,7 @@
 
 class LinkStateDamage : public LinkStateBase {
     /* 00 (base) */
-    /* 0c */ void *mUnk_0c;
+    /* 0c */ void* mUnk_0c;
     /* 10 */ unk32 mUnk_10;
     /* 14 */ unk32 mUnk_14;
     /* 18 */ unk32 mUnk_18;
@@ -21,8 +21,8 @@ class LinkStateDamage : public LinkStateBase {
     /* 32 */ unk16 mUnk_32;
     /* 34 */ unk32 mUnk_34[2];
     /* 3c */ ModelRender mUnk_3c;
-    /* 98 */ void *mUnk_98;
-    /* 9c */ void *mUnk_9c;
+    /* 98 */ void* mUnk_98;
+    /* 9c */ void* mUnk_9c;
     /* a0 */ unk32 mUnk_a0[3];
     /* ac */ unk32 mUnk_ac;
     /* b0 */ unk8 mUnk_b0[4];
@@ -45,8 +45,8 @@ class LinkStateDamage : public LinkStateBase {
     void func_ov00_020aca50();
     void func_ov00_020aca94();
 
-    void func_ov00_020acb6c(Vec3p *param1, unk32 param2);
-    void func_ov00_020ace90(Vec3p *param1, unk32 param2);
+    void func_ov00_020acb6c(Vec3p* param1, unk32 param2);
+    void func_ov00_020ace90(Vec3p* param1, unk32 param2);
 
     void func_ov00_020acfe8(bool param1);
 };

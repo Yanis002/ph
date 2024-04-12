@@ -12,6 +12,6 @@ struct ActorType {
     /* 04 */ ActorCreateFunc create;
     /* 08 */ unk32 unk_08;
     /* 0c */ unk32 unk_0c;
-    /* 10 */ ActorType *next;
+    /* 10 */ ActorType* next;
     /* 14 */
 };

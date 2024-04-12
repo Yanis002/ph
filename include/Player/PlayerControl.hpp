@@ -5,12 +5,12 @@
 
 #include "lib/math.h"
 
-#include "Player/TouchControl.hpp"
-#include "Player/TouchGesture.hpp"
-#include "Actor/ActorManager.hpp"
 #include "Actor/Actor.hpp"
+#include "Actor/ActorManager.hpp"
 #include "Debug/DebugHierarchy.hpp"
 #include "Item/Item.hpp"
+#include "Player/TouchControl.hpp"
+#include "Player/TouchGesture.hpp"
 
 typedef u16 TouchEdge;
 enum TouchEdge_ {
@@ -22,7 +22,7 @@ enum TouchEdge_ {
 };
 
 class PlayerControl : public TouchControl {
-public:
+  public:
     /* 00 (base) */
     /* 38 */ Vec3p mTouchWorld; // tile position
     /* 44 */ Vec3p mUnk_44;
@@ -61,7 +61,7 @@ public:
     /* 9c */ unk8 mUnk_9c;
     /* 9d */ unk8 mUnk_9d;
     /* 9e */ unk8 mUnk_9e[2];
-    /* a0 */ void *mFollowActor;
+    /* a0 */ void* mFollowActor;
     /* a4 */ q20 mFollowDist;
     /* a8 */ u16 mFollowStuckTimer;
     /* aa */ u16 mCutsceneEndTimer;
@@ -71,8 +71,8 @@ public:
     /* bc */ Vec3p mAimWorld; // used by hammer
     /* c8 */ s32 mUnk_c8;
     /* cc */ s32 mUnk_cc;
-    /* d0 */ TouchGesture **mTouchGesture;
-    /* d4 */ DebugHierarchy *mDebug;
+    /* d0 */ TouchGesture** mTouchGesture;
+    /* d4 */ DebugHierarchy* mDebug;
     /* d8 */
 
     static bool func_ov00_020aeeac();
@@ -80,7 +80,7 @@ public:
     void func_ov00_020aef30();
     void UpdateAim();
     Actor* GetFollowActor();
-    bool func_ov00_020af01c(unk8 *param1);
+    bool func_ov00_020af01c(unk8* param1);
     void SetUnk_80();
     void StopFollowing();
     void func_ov00_020af06c();
@@ -92,35 +92,35 @@ public:
     bool CheckTouchFast(u32 param1);
     bool func_ov00_020af4a4();
     void func_ov00_020af538();
-    void func_ov00_020af6e4(Vec3p *param1, s32 param3, s32 param4);
+    void func_ov00_020af6e4(Vec3p* param1, s32 param3, s32 param4);
     bool func_ov00_020af778();
-    bool func_ov00_020afad8(Vec3p *param1);
+    bool func_ov00_020afad8(Vec3p* param1);
     void func_ov00_020afb6c();
     bool func_ov00_020afe88(s32 param1, bool param2);
     bool func_ov00_020afeec(unk32 param1, bool param2);
     void func_ov00_020aff90(unk32 param1, unk32 param2);
-    void func_ov00_020affec(Vec3p *param1, s32 y, s32 param3, Vec3p *param4);
+    void func_ov00_020affec(Vec3p* param1, s32 y, s32 param3, Vec3p* param4);
     void func_ov00_020b014c();
     void SetAim();
-    bool UpdateAimWorld(Vec3p *param1);
+    bool UpdateAimWorld(Vec3p* param1);
     s16 GetTouchAngle();
     u32 func_ov00_020b034c();
     s32 func_ov00_020b0418();
-    bool func_ov00_020b049c(Vec3p *param1, bool param2);
-    bool func_ov00_020b05e8(Vec3p *param1);
-    bool func_ov00_020b0778(Vec3p *param1, u32 param2, unk32 param3);
+    bool func_ov00_020b049c(Vec3p* param1, bool param2);
+    bool func_ov00_020b05e8(Vec3p* param1);
+    bool func_ov00_020b0778(Vec3p* param1, u32 param2, unk32 param3);
     bool CheckNotTouching();
-    bool func_ov00_020b0ad0(Actor *actor);
-    bool func_ov00_020b0b0c(s16 *pAngle, ItemFlag *pEquipId, unk32 *pCardinal, bool *pFast);
-    bool func_ov00_020b0de8(Vec3p *param1);
-    bool func_ov00_020b0e54(Vec3p *param1, Vec3p *param2);
-    bool func_ov00_020b0f88(Vec3p *param1, unk32 param2, Vec3p *param3);
-    bool func_ov00_020b1058(Vec3p *param1, unk32 param2, Vec3p *param3, Vec3p *param4);
+    bool func_ov00_020b0ad0(Actor* actor);
+    bool func_ov00_020b0b0c(s16* pAngle, ItemFlag* pEquipId, unk32* pCardinal, bool* pFast);
+    bool func_ov00_020b0de8(Vec3p* param1);
+    bool func_ov00_020b0e54(Vec3p* param1, Vec3p* param2);
+    bool func_ov00_020b0f88(Vec3p* param1, unk32 param2, Vec3p* param3);
+    bool func_ov00_020b1058(Vec3p* param1, unk32 param2, Vec3p* param3, Vec3p* param4);
     bool IsUntouchedNow();
     bool IsNotUntouchedNow();
-    bool func_ov00_020b1248(unk32 *param1);
+    bool func_ov00_020b1248(unk32* param1);
     bool func_ov00_020b129c();
-    bool func_ov00_020b12d0(s16 *pAngle);
+    bool func_ov00_020b12d0(s16* pAngle);
     bool IsNotTouching();
     bool IsTouchingFast();
     bool IsTappedNow();

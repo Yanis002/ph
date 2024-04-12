@@ -7,6 +7,6 @@
 
 class DebugHierarchyBase : public SysObject {
     /* 00 (vtable) */
-    /* 04 */ void *mNodes;
+    /* 04 */ void* mNodes;
     /* 08 */
 };

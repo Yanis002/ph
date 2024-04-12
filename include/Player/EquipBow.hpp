@@ -1,10 +1,10 @@
 #pragma once
 
-#include "types.h"
 #include "Player/EquipItem.hpp"
+#include "types.h"
 
 class EquipBow : public EquipItem {
-private:
+  private:
     /* 00 (base) */
     /* 09 */ unk8 mUnk_09;
     /* 0a */ unk8 mUnk_0a;
@@ -13,7 +13,7 @@ private:
     /* 0d */ unk8 mUnk_0d[3];
     /* 10 */
 
-public:
+  public:
     EquipBow();
 
     /* 00 */ virtual void vfunc_00() override; // func_ov56_02198d00

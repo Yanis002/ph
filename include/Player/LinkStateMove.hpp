@@ -6,7 +6,7 @@
 #include "Player/LinkStateBase.hpp"
 
 class LinkStateMove : public LinkStateBase {
-public:
+  public:
     /* 00 (base) */
     /* 0c */ s32 mUnk_0c;
     /* 10 */ unk16 mUnk_10;

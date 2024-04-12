@@ -4,17 +4,17 @@
 #include "types.h"
 
 #include "Item/Item.hpp"
-#include "Player/EquipSword.hpp"
 #include "Player/EquipShield.hpp"
+#include "Player/EquipSword.hpp"
 
 #include "Physics/Cylinder.hpp"
 #include "Render/FadeControl.hpp"
 #include "System/SysNew.hpp"
 
 class PlayerBase : public SysObject {
-public:
+  public:
     /* 00 (vtable) */
-    /* 04 */ FadeControl *mFadeControl;
+    /* 04 */ FadeControl* mFadeControl;
     /* 08 */ s16 mInvincibleFrames;
     /* 0a */ s16 mHealth;
     /* 0c */ unk8 mUnk_0c[2];
@@ -28,8 +28,8 @@ public:
     /* 04 */ virtual bool vfunc_04();
     /* 08 */ virtual ItemFlag GetEquipId();
     /* 0c */ virtual bool CanMove();
-    /* 10 */ virtual void vfunc_10(Cylinder *param1) = 0;
-    /* 14 */ virtual void vfunc_14(Cylinder *param1) = 0;
+    /* 10 */ virtual void vfunc_10(Cylinder* param1) = 0;
+    /* 14 */ virtual void vfunc_14(Cylinder* param1) = 0;
     /* 18 */ virtual void vfunc_18() = 0;
     /* 1c */ virtual void Init() = 0;
     /* 20 */ virtual void vfunc_20() = 0;
@@ -37,7 +37,7 @@ public:
     /* 28 */ virtual void vfunc_28(s32 param1) = 0;
     /* 2c */ virtual void vfunc_2c(s32 param1, unk8 param2) = 0;
     /* 30 */ virtual void vfunc_30() = 0;
-    /* 34 */ virtual bool Teleport(Vec3p *pos, s16 angle, unk32 param3, bool param4, bool param5);
+    /* 34 */ virtual bool Teleport(Vec3p* pos, s16 angle, unk32 param3, bool param4, bool param5);
     /* 38 */ virtual bool TeleportToEntrance(unk32 entranceId, bool param2);
     /* 3c */ virtual bool TeleportToLastEntrance(bool param1);
     /* 40 */ virtual void AddHealth(s16 amount);
@@ -51,11 +51,11 @@ public:
     void SetVisible(bool visible);
     EquipSword* GetEquipSword();
     EquipShield* GetEquipShield();
-    void LookAt(Vec3p *target);
+    void LookAt(Vec3p* target);
     bool func_ov00_020a7c00(s32 param1);
-    bool func_ov00_020a7c1c(Cylinder *cylinder);
-    bool func_ov00_020a7c60(Vec3p *param1, Vec3p *param2, s32 param3);
-    void EquipItem_vfunc_3c(Cylinder *cylinder, ItemFlag equipId);
+    bool func_ov00_020a7c1c(Cylinder* cylinder);
+    bool func_ov00_020a7c60(Vec3p* param1, Vec3p* param2, s32 param3);
+    void EquipItem_vfunc_3c(Cylinder* cylinder, ItemFlag equipId);
     void EquipItem_vfunc_2c();
     void SetHealth(s16 health);
 };

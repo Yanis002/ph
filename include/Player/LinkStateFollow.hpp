@@ -10,9 +10,9 @@
 #include "Player/LinkStateCutscene.hpp"
 
 class LinkStateFollow : public LinkStateBase {
-public:
+  public:
     /* 00 (base) */
-    /* 0c */ void *mUnk_0c;
+    /* 0c */ void* mUnk_0c;
     /* 10 */ unk32 mUnk_10;
     /* 14 */ unk8 mUnk_14[0x10];
     /* 24 */ Vec3p mTarget;
@@ -30,12 +30,12 @@ public:
     /* 20 */ virtual bool vfunc_20(s32 param1) override;
     /* 24 */ virtual bool vfunc_24(s32 param1) override;
     /* 28 */ virtual bool vfunc_28() override;
-    /* 2c */ virtual void vfunc_2c(u16 *param1) override;
-    /* 34 */ virtual bool vfunc_34(Vec3p *param1) override;
+    /* 2c */ virtual void vfunc_2c(u16* param1) override;
+    /* 34 */ virtual bool vfunc_34(Vec3p* param1) override;
     /* 44 */
 
     void MoveTowardTarget();
     LinkStateCutscene* GetLinkStateCutscene();
-    bool func_ov00_020a9180(Vec3p *param1);
-    bool func_ov00_020a9210(Vec3p *param1, Actor *param2);
+    bool func_ov00_020a9180(Vec3p* param1);
+    bool func_ov00_020a9210(Vec3p* param1, Actor* param2);
 };

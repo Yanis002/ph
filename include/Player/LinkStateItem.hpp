@@ -3,15 +3,15 @@
 #include "global.h"
 #include "types.h"
 
+#include "Item/Item.hpp"
+#include "Player/EquipBombchu.hpp"
 #include "Player/LinkStateBase.hpp"
 #include "Player/LinkStateMove.hpp"
-#include "Player/EquipBombchu.hpp"
-#include "Item/Item.hpp"
 
 class LinkStateItem : public LinkStateBase {
-public:
+  public:
     /* 00 (base) */
-    /* 0c */ void *mUnk_0c;
+    /* 0c */ void* mUnk_0c;
     /* 10 */ unk32 mUnk_10;
     /* 14 */ ItemId mEquipId;
     /* 18 */ ItemId mNextEquip;
@@ -22,13 +22,13 @@ public:
     /* 25 */ unk8 mUnk_25[7];
     /* 2c */ unk16 mUnk_2c;
     /* 2e */ unk8 mUnk_2e[2];
-    /* 30 */ void *mUnk_30;
+    /* 30 */ void* mUnk_30;
     /* 34 */ unk32 mUnk_34;
     /* 38 */ unk32 mUnk_38;
-    /* 3c */ void *mUnk_3c;
+    /* 3c */ void* mUnk_3c;
     /* 40 */ unk32 mUnk_40;
     /* 44 */ unk32 mUnk_44;
-    /* 48 */ void *mUnk_48;
+    /* 48 */ void* mUnk_48;
     /* 4c */ unk32 mUnk_4c;
     /* 50 */ unk32 mUnk_50[2];
     /* 58 */ unk32 mUnk_58;

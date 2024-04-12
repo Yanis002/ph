@@ -5,14 +5,14 @@
 
 #include "lib/math.h"
 
-#include "Player/LinkStateBase.hpp"
 #include "Item/Item.hpp"
+#include "Player/LinkStateBase.hpp"
 
 class LinkStateCutscene : public LinkStateBase {
-public:
+  public:
     /* 00 (base) */
     /* 0c */ unk8 mUnk_08[0x24]; // non-documented struct
-    /* 30 */ void *mUnk_30;
+    /* 30 */ void* mUnk_30;
     /* 34 */ s16 mUnk_34;
     /* 36 */ unk8 mUnk_36[2];
     /* 38 */ s32 mUnk_38;
@@ -35,10 +35,10 @@ public:
     /* 7e */ unk16 mUnk_7e;
     /* 80 */ unk16 mUnk_80;
     /* 82 */ unk8 mUnk_82[2];
-    /* 84 */ void *mUnk_84;
+    /* 84 */ void* mUnk_84;
     /* 88 */ unk32 mUnk_88[4];
     /* 98 */ unk32 mUnk_98;
-    /* 9c */ void *mUnk_9c;
+    /* 9c */ void* mUnk_9c;
     /* a0 */ unk32 mUnk_a0;
     /* a4 */ bool mUnk_a4;
     /* a5 */ s8 mUnk_a5;

@@ -1,8 +1,8 @@
 #pragma once
 
 #include "global.h"
-#include "types.h"
 #include "lib/files.h"
+#include "types.h"
 
 struct MotionParams {
     /* 00 */ FileEntry motionBhio; // motion.bhio

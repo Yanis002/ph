@@ -4,48 +4,48 @@
 
 typedef s32 ItemFlag;
 enum ItemFlag_ {
-    ItemFlag_None             = -1,
-    ItemFlag_OshusSword       = 0,
-    ItemFlag_WoodenShield     = 1,
-    ItemFlag_Boomerang        = 2,
-    ItemFlag_Shovel           = 3,
-    ItemFlag_BombBag          = 4,
-    ItemFlag_Bow              = 5,
-    ItemFlag_GrapplingHook    = 6,
-    ItemFlag_BombchuBag       = 7,
-    ItemFlag_Hammer           = 8,
-    ItemFlag_PotionA          = 9,
-    ItemFlag_PotionB          = 10,
-    ItemFlag_EQUIP_START      = ItemFlag_OshusSword,
-    ItemFlag_EQUIP_END        = ItemFlag_PotionB + 1,
-    ItemFlag_EQUIP_COUNT      = ItemFlag_EQUIP_END - ItemFlag_EQUIP_START,
+    ItemFlag_None = -1,
+    ItemFlag_OshusSword = 0,
+    ItemFlag_WoodenShield = 1,
+    ItemFlag_Boomerang = 2,
+    ItemFlag_Shovel = 3,
+    ItemFlag_BombBag = 4,
+    ItemFlag_Bow = 5,
+    ItemFlag_GrapplingHook = 6,
+    ItemFlag_BombchuBag = 7,
+    ItemFlag_Hammer = 8,
+    ItemFlag_PotionA = 9,
+    ItemFlag_PotionB = 10,
+    ItemFlag_EQUIP_START = ItemFlag_OshusSword,
+    ItemFlag_EQUIP_END = ItemFlag_PotionB + 1,
+    ItemFlag_EQUIP_COUNT = ItemFlag_EQUIP_END - ItemFlag_EQUIP_START,
 
-    ItemFlag_SpiritOfCourage  = 20,
-    ItemFlag_SpiritOfPower    = 21,
-    ItemFlag_SpiritOfWisdom   = 22,
-    ItemFlag_CourageLv1       = 23,
-    ItemFlag_PowerLv1         = 24,
-    ItemFlag_WisdomLv1        = 25,
-    ItemFlag_FAIRY_LV1        = ItemFlag_CourageLv1,
-    ItemFlag_CourageLv2       = 26,
-    ItemFlag_PowerLv2         = 27,
-    ItemFlag_WisdomLv2        = 28,
-    ItemFlag_FAIRY_LV2        = ItemFlag_CourageLv2,
+    ItemFlag_SpiritOfCourage = 20,
+    ItemFlag_SpiritOfPower = 21,
+    ItemFlag_SpiritOfWisdom = 22,
+    ItemFlag_CourageLv1 = 23,
+    ItemFlag_PowerLv1 = 24,
+    ItemFlag_WisdomLv1 = 25,
+    ItemFlag_FAIRY_LV1 = ItemFlag_CourageLv1,
+    ItemFlag_CourageLv2 = 26,
+    ItemFlag_PowerLv2 = 27,
+    ItemFlag_WisdomLv2 = 28,
+    ItemFlag_FAIRY_LV2 = ItemFlag_CourageLv2,
 
-    ItemFlag_Hourglass        = 32,
-    ItemFlag_SeaChartSW       = 33,
-    ItemFlag_SeaChartNW       = 34,
-    ItemFlag_SeaChartSE       = 35,
-    ItemFlag_SeaChartNE       = 36,
-    ItemFlag_PhantomSword     = 37,
-    ItemFlag_SunKey           = 38,
+    ItemFlag_Hourglass = 32,
+    ItemFlag_SeaChartSW = 33,
+    ItemFlag_SeaChartNW = 34,
+    ItemFlag_SeaChartSE = 35,
+    ItemFlag_SeaChartNE = 36,
+    ItemFlag_PhantomSword = 37,
+    ItemFlag_SunKey = 38,
 
-    ItemFlag_KingsKey         = 42,
-    ItemFlag_GhostKey         = 43,
+    ItemFlag_KingsKey = 42,
+    ItemFlag_GhostKey = 43,
 
     ItemFlag_SwordsmansScroll = 45,
 
-    ItemFlag_COUNT            = 128,
+    ItemFlag_COUNT = 128,
 };
 
 typedef s32 ItemId;
@@ -70,7 +70,7 @@ enum ItemId_ {
     /* 0x14 */ ItemId_NWSeaChart = 20,
     /* 0x15 */ ItemId_SESeaChart = 21,
     /* 0x16 */ ItemId_NESeaChart = 22,
-    
+
     /* 0x18 */ ItemId_BlueRupee = 24,
     /* 0x19 */ ItemId_RedRupee = 25,
     /* 0x1a */ ItemId_BigRedRupee = 26,
@@ -187,6 +187,6 @@ enum ItemId_ {
 };
 
 namespace Item {
-    bool func_ov00_020ad020(ItemId item);
-    bool func_ov00_020ad068(ItemId item);
-}
+bool func_ov00_020ad020(ItemId item);
+bool func_ov00_020ad068(ItemId item);
+} // namespace Item

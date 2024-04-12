@@ -6,7 +6,7 @@
 #include "Player/LinkStateBase.hpp"
 
 class LinkStateRoll : public LinkStateBase {
-public:
+  public:
     /* 00 (base) */
     /* 0c */ unk16 mUnk_0c;
     /* 0e */ unk8 mUnk_0a[2];
@@ -24,7 +24,7 @@ public:
     /* 2c */ unk32 mUnk_2c[5];
     /* 40 */ unk32 mUnk_40;
     /* 44 */ unk32 mUnk_44[0x10];
-    /* 84 */ void *mUnk_84;
+    /* 84 */ void* mUnk_84;
     /* 88 */ unk32 mUnk_88;
     /* 8c */ unk8 mUnk_8c[0xc];
     /* 98 */

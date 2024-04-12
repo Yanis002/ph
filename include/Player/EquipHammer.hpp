@@ -1,10 +1,10 @@
 #pragma once
 
-#include "types.h"
 #include "Player/EquipItem.hpp"
+#include "types.h"
 
 class EquipHammer : public EquipItem {
-private:
+  private:
     /* 00 (base) */
     /* 09 */ unk8 mUnk_09[3];
     /* 0c */ unk8 mUnk_0c[0xc];
@@ -13,11 +13,11 @@ private:
     /* 1d */ unk8 mUnk_1d;
     /* 1e */ unk8 mUnk_1e[2];
     /* 20 */ unk32 mUnk_20;
-    /* 24 */ void *mUnk_24;
+    /* 24 */ void* mUnk_24;
     /* 28 */ unk32 mUnk_28;
     /* 2c */
 
-public:
+  public:
     EquipHammer();
 
     /* 04 */ virtual ~EquipHammer() override;
@@ -31,7 +31,7 @@ public:
     /* 2c */ virtual unk32 vfunc_2c() override; // func_ov59_02198fcc
     /* 30 */ virtual void vfunc_30() override; // func_ov59_02198e6c
     /* 38 */ virtual void vfunc_38(unk32 param1) override; // func_0v59_02198fc8
-    /* 3c */ virtual bool vfunc_3c(Vec4p *param1) const override; // func_ov14_0213ee10
+    /* 3c */ virtual bool vfunc_3c(Vec4p* param1) const override; // func_ov14_0213ee10
     /* 4c */ virtual s32 vfunc_4c() const override; // func_ov14_0213eea8
     /* 50 */
 };

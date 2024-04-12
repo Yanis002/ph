@@ -8,19 +8,19 @@
 #define GESTURE_BUFFER_LENGTH 14
 
 class TouchGestureBase : public SysObject {
-public:
+  public:
     /* 0 (vtable) */
     /* 4 */ bool mUnk_4;
     /* 5 */
 
     /* 00 */ virtual ~TouchGestureBase();
     /* 08 */ virtual void ResetTouchHistory();
-    /* 0c */ virtual void Update(void *param1) = 0;
+    /* 0c */ virtual void Update(void* param1) = 0;
     /* 10 */
 };
 
 class TouchGesture : public TouchGestureBase {
-public:
+  public:
     /* 00 (base) */
     /* 05 */ unk8 mUnk_05[7];
     /* 0c */ u16 mIndex;
@@ -29,10 +29,10 @@ public:
     /* 2c */ u16 mTouchX[GESTURE_BUFFER_LENGTH];
     /* 48 */ u16 mTouchY[GESTURE_BUFFER_LENGTH];
     /* 64 */
-    
+
     /* 00 */ virtual ~TouchGesture() override;
     /* 08 */ virtual void ResetTouchHistory() override;
-    /* 0c */ virtual void Update(void *param1) override;
+    /* 0c */ virtual void Update(void* param1) override;
     /* 10 */
 
     TouchGesture();

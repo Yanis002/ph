@@ -9,7 +9,7 @@
 #include "Physics/Transform.hpp"
 
 class Actor {
-public:
+  public:
     /* 000 (vtable) */
     /* 004 */ unk32 mType;
     /* 008 */ unk32 mId;
@@ -104,17 +104,17 @@ public:
     /* 28 */ virtual void vfunc_28();
     /* 2c */ virtual s32 vfunc_2c();
     /* 30 */ virtual unk32 vfunc_30();
-    /* 34 */ virtual void GetOffsetPos(Vec3p *pos);
+    /* 34 */ virtual void GetOffsetPos(Vec3p* pos);
     /* 38 */ virtual unk32 vfunc_38();
     /* 3c */ virtual bool CollidesWithLink();
     /* 40 */ virtual bool IsHitboxTouched(bool param1);
-    /* 44 */ virtual bool CollidesWith(const Actor *other);
+    /* 44 */ virtual bool CollidesWith(const Actor* other);
     /* 48 */ virtual bool vfunc_48();
-    /* 4c */ virtual bool vfunc_4c(unk32 *param1);
+    /* 4c */ virtual bool vfunc_4c(unk32* param1);
     /* 50 */ virtual Vec3p* GetPos();
     /* 54 */ virtual void vfunc_54();
     /* 58 */ virtual void SetUnk_11b();
-    /* 5c */ virtual bool SetVelocity(Vec3p *vel);
+    /* 5c */ virtual bool SetVelocity(Vec3p* vel);
     /* 60 */ virtual bool vfunc_60();
     /* 64 */ virtual void vfunc_64();
     /* 68 */ virtual void vfunc_68();
@@ -131,8 +131,8 @@ public:
     /* 94 */ virtual void vfunc_94();
     /* 98 */ virtual void vfunc_98();
     /* 9c */ virtual void vfunc_9c();
-    /* a0 */ virtual bool TrySetTransform(Transform *transform);
-    /* a4 */ virtual void SetTransform(Transform *transform);
+    /* a0 */ virtual bool TrySetTransform(Transform* transform);
+    /* a4 */ virtual void SetTransform(Transform* transform);
     /* a8 */ virtual void vfunc_a8();
     /* ac */ virtual void vfunc_ac();
     /* b0 */ virtual void vfunc_b0();

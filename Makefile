@@ -63,6 +63,7 @@ help:
 	@echo "make usa ........................ Builds American ROM"
 	@echo "make clean ...................... Clean up build files"
 	@echo "make gen_externs ................ Generates .inc files for Assembly"
+	@echo "make format ..................... Formats the codebase"
 
 .PHONY: eur
 eur:
@@ -139,3 +140,8 @@ gen_externs: $(ASM_INCS)
 
 $(ASM_INCS): %.inc: %.s
 	$(PYTHON) $(TOOLS_DIR)/gen_externs.py $<
+
+.PHONY: format
+format:
+	find include src -name '*.h' -o -name '*.c' | xargs clang-format -i
+	find include src -name '*.hpp' -o -name '*.cpp' | xargs clang-format -i

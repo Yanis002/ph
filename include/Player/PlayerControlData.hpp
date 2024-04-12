@@ -8,7 +8,7 @@
 #include "System/SysNew.hpp"
 
 class PlayerControlData : public SysObject {
-public:
+  public:
     /* 000 (vtable) */
     /* 004 */ unk32 mUnk_004;
     /* 008 */ unk32 mUnk_008;

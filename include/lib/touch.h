@@ -17,4 +17,4 @@ struct TouchState {
 };
 
 void WaitForTouchUpdate(u16 param1);
-bool GetTouchStateFlags(TouchStateFlags *pState);
+bool GetTouchStateFlags(TouchStateFlags* pState);

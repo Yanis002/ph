@@ -1,15 +1,15 @@
 #pragma once
 
-#include "types.h"
 #include "Player/EquipItem.hpp"
+#include "types.h"
 
 class EquipScoop : public EquipItem {
-private:
+  private:
     /* 0 (base) */
     /* 9 */ unk8 mUnk_9[3];
     /* c */
 
-public:
+  public:
     /* 00 */ virtual void vfunc_00() override; // func_ov54_02198d00
     /* 04 */ virtual ~EquipScoop() override;
     /* 0c */ virtual ItemFlag GetId() const override;
@@ -24,4 +24,3 @@ public:
     /* 48 */ virtual unk32 vfunc_48(unk32 param1) const override; // func_ov54_02198d48
     /* 50 */
 };
-

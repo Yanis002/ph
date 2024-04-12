@@ -1,17 +1,17 @@
 #pragma once
 
-#include "types.h"
 #include "Player/EquipItem.hpp"
+#include "types.h"
 
 class EquipBomb : public EquipItem {
-private:
+  private:
     /* 00 (base) */
     /* 09 */ unk8 mUnk_09[3];
     /* 0c */ unk32 mUnk_0c;
     /* 10 */ unk8 mUnk_10[0x14];
-    /* 24 */ 
+    /* 24 */
 
-public:
+  public:
     EquipBomb();
 
     /* 00 */ virtual void vfunc_00() override; // func_ov55_02198d00

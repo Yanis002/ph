@@ -1,8 +1,8 @@
 #pragma once
 
 #include "global.h"
-#include "types.h"
 #include "lib/touch.h"
+#include "types.h"
 
 typedef u16 TouchFlags;
 enum TouchFlag_ {
@@ -12,7 +12,7 @@ enum TouchFlag_ {
 };
 
 class TouchControl {
-public:
+  public:
     /* 00 */ u16 mSpeed;
     /* 02 */ u16 mTimeBetweenTouches; // gets set to mTimeSinceTouch when touching the screen
     /* 04 */ u16 mTimeSinceTouch; // increases by mSpeed every frame
@@ -37,9 +37,9 @@ public:
     TouchControl();
     void IncreaseSpeed(s16 increase);
     void UpdateFlags(u16 speed);
-    void UpdateWithStateFlags(TouchStateFlags *state, u16 speed);
-    void Update(TouchState *state, u16 speed);
+    void UpdateWithStateFlags(TouchStateFlags* state, u16 speed);
+    void Update(TouchState* state, u16 speed);
     bool func_ov00_0207aeac();
-    void UpdateConditionally(TouchState *state, u16 speed);
+    void UpdateConditionally(TouchState* state, u16 speed);
     void func_ov00_0207af38(u16 speed, bool param2);
 };

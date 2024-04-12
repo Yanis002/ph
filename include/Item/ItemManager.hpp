@@ -1,25 +1,25 @@
 #pragma once
 
 #include "global.h"
-#include "types.h"
 #include "lib/math.h"
+#include "types.h"
 
 #include "Actor/ActorNavi.hpp"
 #include "Item/Item.hpp"
 #include "Player/EquipItem.hpp"
-#include "System/SysNew.hpp"
-#include "System/OverlayManager.hpp"
 #include "Render/ModelRender.hpp"
+#include "System/OverlayManager.hpp"
+#include "System/SysNew.hpp"
 
 #define MAX_HOURGLASS_SECONDS 1500 // 25 minutes
 
 typedef s32 FairyId;
 enum FairyId_ {
-    FairyId_None    = -1,
+    FairyId_None = -1,
     FairyId_Courage = 0,
-    FairyId_Power   = 1,
-    FairyId_Wisdom  = 2,
-    FairyId_COUNT   = 3,
+    FairyId_Power = 1,
+    FairyId_Wisdom = 2,
+    FairyId_COUNT = 3,
 };
 
 enum Gem {
@@ -57,7 +57,7 @@ enum ShipType_ {
 };
 
 typedef u32 ShipItem;
-#define SHIP_ITEM(part, ship) (ShipPart_ ## part * ShipPart_COUNT + ShipType_ ## type)
+#define SHIP_ITEM(part, ship) (ShipPart_##part * ShipPart_COUNT + ShipType_##type)
 #define ShipItem_COUNT (ShipPart_COUNT * ShipType_COUNT)
 
 typedef u32 Treasure;
@@ -84,7 +84,6 @@ enum Potion_ {
     Potion_COUNT,
 };
 
-
 struct ItemFlags {
     /* 00 */ u32 flags[CEIL_DIV(ItemFlag_COUNT, 32)];
     /* 10 */
@@ -110,37 +109,37 @@ struct UnkStruct_027e0d38 {
     /* 20 */ unk8 mUnk_20;
     /* 21 */ unk8 mUnk_21;
     /* 22 */ unk8 mUnk_22[2]; // padding?
-    /* 24 */ void *mUnk_24;
-    /* 28 */ void *mUnk_28;
+    /* 24 */ void* mUnk_24;
+    /* 28 */ void* mUnk_28;
     /* 2c */
 };
 
 typedef u32 ItemModelId;
 enum ItemModelId_ {
-    ItemModelId_OshusSword,   // swA
+    ItemModelId_OshusSword, // swA
     ItemModelId_PhantomSword, // swB
     ItemModelId_WoodenShield, // shA
-    ItemModelId_Bow,          // bow
-    ItemModelId_Arrow,        // arrow
-    ItemModelId_ArrowS,       // arrow_s, purpose unknown
-    ItemModelId_Boomerang,    // boomerang
-    ItemModelId_Scoop,        // scp
-    ItemModelId_Bomb,         // bomb
-    ItemModelId_Bombchu,      // bomchu
-    ItemModelId_RedPotion,    // rev_bin
+    ItemModelId_Bow, // bow
+    ItemModelId_Arrow, // arrow
+    ItemModelId_ArrowS, // arrow_s, purpose unknown
+    ItemModelId_Boomerang, // boomerang
+    ItemModelId_Scoop, // scp
+    ItemModelId_Bomb, // bomb
+    ItemModelId_Bombchu, // bomchu
+    ItemModelId_RedPotion, // rev_bin
     ItemModelId_PurplePotion, // rev_binP
     ItemModelId_YellowPotion, // rev_binY
-    ItemModelId_Hammer,       // ham
-    ItemModelId_RopeTop,      // ropetop
-    ItemModelId_BombchuPt,    // bomchu_pt, purpose unknown
+    ItemModelId_Hammer, // ham
+    ItemModelId_RopeTop, // ropetop
+    ItemModelId_BombchuPt, // bomchu_pt, purpose unknown
     ItemModelId_COUNT,
 };
 typedef u32 DungeonItemModelId;
 enum DungeonItemModelId_ {
-    DungeonItemModelId_ForceGem,        // force
-    DungeonItemModelId_BossKey,         // bosskey
-    DungeonItemModelId_RoundCrystal,    // switch_cstl_c_c
-    DungeonItemModelId_SquareCrystal,   // switch_cstl_s_c
+    DungeonItemModelId_ForceGem, // force
+    DungeonItemModelId_BossKey, // bosskey
+    DungeonItemModelId_RoundCrystal, // switch_cstl_c_c
+    DungeonItemModelId_SquareCrystal, // switch_cstl_s_c
     DungeonItemModelId_TriangleCrystal, // switch_cstl_t_c
     DungeonItemModelId_COUNT,
 };
@@ -175,13 +174,13 @@ struct SaveItemManager {
 };
 
 class ItemManager : public SysObject {
-private:
+  private:
     /* 000 */ ItemFlag mEquippedItem;
     /* 004 */ ItemFlag mPrevEquippedItem;
     /* 008 */ ItemFlag mForcedItem; // game crashes when any item besides this one is equipped
     /* 00c */ u32 mHourglassSandFrames;
     /* 010 */ FairyId mEquippedFairy;
-    /* 014 */ ActorNavi *mFairies[FairyId_COUNT];
+    /* 014 */ ActorNavi* mFairies[FairyId_COUNT];
     /* 020 */ u16 mEquipLoadTimer;
     /* 022 */ u16 mNumRupees;
     /* 024 */ u8 mNumGems[Gem_COUNT];
@@ -192,7 +191,7 @@ private:
     /* 098 */ u8 mUnk_098[6]; // max 99
     /* 09e */ u16 mUnk_09e[6]; // max 9999, corresponds with mUnk_098
     /* 0aa */ unk16 mUnk_0aa; // padding?
-    /* 0ac */ EquipItem *(*mEquipItems)[ItemFlag_EQUIP_COUNT];
+    /* 0ac */ EquipItem* (*mEquipItems)[ItemFlag_EQUIP_COUNT];
     /* 0b0 */ u16 (*mAmmo)[ItemFlag_EQUIP_COUNT];
     /* 0b4 */ u16 mQuiverSize;
     /* 0b6 */ u16 mBombBagSize;
@@ -200,13 +199,13 @@ private:
     /* 0ba */ unk16 mUnk_0ba; // only between 0 and 9
     /* 0bc */ Potion mPotions[2];
     /* 0be */ unk8 mUnk_0be[2]; // padding?
-    /* 0c0 */ ItemModel *mItemModels[ItemModelId_COUNT];
-    /* 100 */ ItemModel *mDungeonItemModels[DungeonItemModelId_COUNT]; // non-null in dungeons/caves
-    /* 114 */ ModelRender *mUnk_114;
+    /* 0c0 */ ItemModel* mItemModels[ItemModelId_COUNT];
+    /* 100 */ ItemModel* mDungeonItemModels[DungeonItemModelId_COUNT]; // non-null in dungeons/caves
+    /* 114 */ ModelRender* mUnk_114;
     /* 118 */ ItemId mFanfareItem;
     /* 11c */ unk32 mUnk_11c;
-    /* 120 */ void *mFanfareItemModel;
-    /* 124 */ void *mUnk_124;
+    /* 120 */ void* mFanfareItemModel;
+    /* 124 */ void* mUnk_124;
     /* 128 */ ItemFlags mItemFlags;
     /* 138 */ u32 mSalvagedTreasureFlags;
     /* 13c */ ShipPartPricesShown mShipPartPricesShown;
@@ -216,15 +215,15 @@ private:
     /* 14e */ unk8 mUnk_14e[0x2];
     /* 150 */
 
-public:
+  public:
     static ItemManager* Create();
     static void Destroy();
     ItemManager();
     ~ItemManager();
 
     // Save/load
-    void Save(SaveItemManager *save);
-    void Load(const SaveItemManager *save);
+    void Save(SaveItemManager* save);
+    void Load(const SaveItemManager* save);
 
     // Fairy
     FairyId GetEquippedFairy() const;
@@ -239,7 +238,7 @@ public:
     void Sword_vfunc_38(unk32 param1);
     void Shield_vfunc_38(unk32 param1);
     void EquipItem_vfunc_38(unk32 param1);
-    bool EquipItem_vfunc_3c(Vec4p *param1, ItemFlag equipId);
+    bool EquipItem_vfunc_3c(Vec4p* param1, ItemFlag equipId);
     void EquipItem_vfunc_2c(ItemFlag equipId);
     EquipItem* GetEquipItem(ItemFlag equipId);
     bool func_ov00_020ad790(unk32 param1);
@@ -248,7 +247,7 @@ public:
     void ForceEquipItem(ItemFlag equipId);
     bool ClearForcedEquipItem();
     void UpdateSwordShieldInUse();
-    
+
     // Ammo
     u16 GetAmmo(ItemFlag equipId) const;
     void GiveAmmo(ItemFlag equipId, u16 amount);
@@ -265,7 +264,7 @@ public:
     ItemModel* GetDungeonItemModel(DungeonItemModelId id);
     void func_ov00_020ad594(unk32 param1) const;
     void LoadFanfareItem(ItemId id);
-    bool GetFanfareItemScale(Vec3p *pScale) const;
+    bool GetFanfareItemScale(Vec3p* pScale) const;
     void LoadDungeonItemModels();
 
     // Ship
@@ -285,7 +284,7 @@ public:
     bool IsTreasureSalvaged(u32 index) const;
     void SetTreasureSalvaged(u32 index);
     u8 GetMaxTreasureCount() const;
-    
+
     // mUnk_098, mUnk_09e
     u8 GetUnk_098(u32 index) const;
     u16 GetUnk_09e(u32 index) const;
@@ -317,4 +316,4 @@ public:
     void func_ov00_020ae648(unk32 param1, unk32 param2, unk32 param3);
 };
 
-extern ItemManager *gItemManager;
+extern ItemManager* gItemManager;

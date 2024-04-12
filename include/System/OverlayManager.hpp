@@ -89,7 +89,7 @@ enum OverlayIndex_ {
 };
 
 class OverlayManager {
-public:
+  public:
     OverlayId mLoadedOverlays[OverlayIndex_COUNT];
 
     void Unload(OverlayIndex index);

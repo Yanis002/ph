@@ -3,6 +3,8 @@
 #include "global.h"
 #include "types.h"
 
+#include "lib/math.h"
+
 #include "Item/Item.hpp"
 #include "Player/EquipBombchu.hpp"
 #include "Player/LinkStateBase.hpp"

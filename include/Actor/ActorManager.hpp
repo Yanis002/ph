@@ -119,15 +119,15 @@ public:
     void func_ov004_021056b8();
 
     // ActorFish
-    void func_ov015_02184330(unk32 param1, Actor* param2, unk32 param3, unk32 param4);
-    bool func_ov015_0218450c(u8* param1);
+    void func_ov015_02184330(unk32 param1, Actor *param2, unk32 param3, unk32 param4);
+    bool func_ov015_0218450c(u8 *param1);
     void func_ov015_02184540(void);
     void func_ov015_021845e8(void);
     void func_ov015_02184644(void);
-    void func_ov015_021846f8(ActorManager_UnkStruct_68* param1, unk32* pIndex);
-    void func_ov015_02184728(unk8* param1, unk32* param2);
-    void func_ov015_0218473c(unk32* param1, u16* param2);
-    static void func_ov015_021847bc(ActorManager_UnkStruct_68* param1, ActorManager* actorManager, u16* param3);
+    void func_ov015_021846f8(ActorManager_UnkStruct_68 *param1, unk32 *pIndex);
+    void func_ov015_02184728(unk8 *param1, unk32 *param2);
+    void func_ov015_0218473c(unk32 *param1, u16 *param2);
+    static void func_ov015_021847bc(ActorManager_UnkStruct_68 *param1, ActorManager *actorManager, u16 *param3);
     void func_ov015_02184838(void);
     void func_ov015_021848dc(void);
 };

@@ -1,11 +1,11 @@
 #pragma once
 
-#include "global.h"
-#include "nds/math.h"
-#include "types.h"
 #include "Actor/Actor.hpp"
 #include "Actor/ActorType.hpp"
 #include "Item/ItemManager.hpp"
+#include "global.h"
+#include "nds/math.h"
+#include "types.h"
 
 class UnkStruct_020c66bc {
 public:
@@ -17,7 +17,7 @@ public:
 };
 
 class ActorFish : public Actor {
-    public:
+public:
     static ActorType gType;
 
     /* 000 (base) */
@@ -36,7 +36,7 @@ class ActorFish : public Actor {
     /* 00 */ virtual ~ActorFish() override;
     /* 08 */ virtual void func_ov015_02183cb4(void) override;
     /* 14 */ virtual void func_ov015_02184108(void) override;
-    /* 1C */ virtual void func_ov015_0218427c(u16* param1) override;
+    /* 1C */ virtual void func_ov015_0218427c(u16 *param1) override;
 
     static ActorFish *Create();
     bool func_ov015_02183bc4(void);
@@ -45,7 +45,7 @@ class ActorFish : public Actor {
 };
 
 class ActorFish2 : public ActorFish {
-    public:
+public:
     /* 000 (base) */
     /* 180 */ unk8 mUnk_180[0x11E];
     /* 29e */ unk8 mUnk_29e;

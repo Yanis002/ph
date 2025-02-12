@@ -1965,7 +1965,7 @@ func_ov015_021839e0 kind:function(arm,size=0x110) addr:0x2183960
 func_ov015_02183af0 kind:function(arm,size=0x10) addr:0x2183a70
 func_ov015_02183b00 kind:function(arm,size=0x74) addr:0x2183a80
 func_ov015_02183b74 kind:function(arm,size=0x20) addr:0x2183af4
-func_ov015_02183b94 kind:function(arm,size=0x30) addr:0x2183b14
+_ZN9ActorFish6CreateEv kind:function(arm,size=0x30) addr:0x2183b14
 func_ov015_02183bc4 kind:function(arm,size=0x80) addr:0x2183b44
 func_ov015_02183c44 kind:function(arm,size=0x28) addr:0x2183bc4
 func_ov015_02183c6c kind:function(arm,size=0x20) addr:0x2183bec
@@ -2365,7 +2365,7 @@ __sinit_ov015_02188f00 kind:function(arm,size=0x40) addr:0x2188e80
 __sinit_ov015_02188f40 kind:function(arm,size=0x40) addr:0x2188ec0
 __sinit_ov015_02188f80 kind:function(arm,size=0x27c) addr:0x2188f00
 __sinit_ov015_021891fc kind:function(arm,size=0x60) addr:0x218917c
-__sinit_ov015_0218925c kind:function(arm,size=0x40) addr:0x21891dc
+__sinit_ActorFish.cpp kind:function(arm,size=0x40) addr:0x21891dc
 __sinit_ov015_0218929c kind:function(arm,size=0x14) addr:0x218921c
 __sinit_ov015_021892b0 kind:function(arm,size=0x20) addr:0x2189230
 data_ov015_02189420 kind:data(any) addr:0x21893a0
@@ -3143,6 +3143,6 @@ data_ov015_021903f8 kind:bss addr:0x2190378
 data_ov015_0219040c kind:bss addr:0x219038c
 data_ov015_02190418 kind:bss addr:0x2190398
 data_ov015_02190424 kind:bss addr:0x21903a4
-data_ov015_02190438 kind:bss addr:0x21903b8
-data_ov015_02190444 kind:bss addr:0x21903c4
+_ZN9ActorFish9gResourceE kind:bss addr:0x21903b8
+_ZN9ActorFish5gTypeE kind:bss addr:0x21903c4
 data_ov015_02190458 kind:bss addr:0x21903d8

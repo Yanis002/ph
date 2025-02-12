@@ -41,6 +41,17 @@ struct ActorList {
     /* c */
 };
 
+struct ActorManager_UnkStruct_54 {
+    /* 00 */ u8 unk_0;
+    /* 00 */ u8 unk_1;
+    /* 00 */ u8 unk_2;
+    /* 00 */ u8 unk_3;
+};
+
+struct ActorManager_UnkStruct_bc {
+    /* 00 */ unk8 unk_0;
+};
+
 class ActorManager {
 public:
     /* 00 */ u16 mMaxActors;
@@ -68,13 +79,14 @@ public:
     /* 48 */ u32 mUnk_48;
     /* 4c */ unk32 mUnk_4c;
     /* 50 */ unk32 mUnk_50;
-    /* 54 */ unk8 mUnk_54[4];
+    /* 54 */ ActorManager_UnkStruct_54 mUnk_54;
     /* 58 */ u32 mUnk_58;
     /* 5c */ unk32 mUnk_5c;
     /* 60 */ unk32 mUnk_60;
-    /* 64 */ unk8 mUnk_64[4];
+    /* 64 */ u8 mUnk_64[4];
     /* 68 */ ActorManager_UnkStruct_68 mUnk_68[5];
-    /* a4 */ unk8 mUnk_a4[0x20];
+    /* a4 */ ActorManager_UnkStruct_68 mUnk_a4[2];
+    /* bc */ ActorManager_UnkStruct_bc mUnk_bc[8];
     /* c4 */
 
     void DeleteActor(u32 index, bool param2);
@@ -105,6 +117,19 @@ public:
     bool func_ov004_02105578(unk32 param1);
     bool func_ov004_02105608(unk32 param1, unk32 param2, unk32 param3);
     void func_ov004_021056b8();
+
+    // ActorFish
+    void func_ov015_02184330(unk32 param1, Actor* param2, unk32 param3, unk32 param4);
+    bool func_ov015_0218450c(u8* param1);
+    void func_ov015_02184540(void);
+    void func_ov015_021845e8(void);
+    void func_ov015_02184644(void);
+    void func_ov015_021846f8(ActorManager_UnkStruct_68* param1, unk32* pIndex);
+    void func_ov015_02184728(unk8* param1, unk32* param2);
+    void func_ov015_0218473c(unk32* param1, u16* param2);
+    static void func_ov015_021847bc(ActorManager_UnkStruct_68* param1, ActorManager* actorManager, u16* param3);
+    void func_ov015_02184838(void);
+    void func_ov015_021848dc(void);
 };
 
 extern ActorManager *gActorManager;

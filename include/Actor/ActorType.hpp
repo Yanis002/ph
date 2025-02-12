@@ -84,6 +84,12 @@ enum ActorTypeId_ {
     ActorTypeId_TSBH = 'TSBH',
     ActorTypeId_TSUB = 'TSUB',
     ActorTypeId_VLR0 = 'VLR0',
+
+    ActorTypeId_Fish = 'FSRL',
+    ActorTypeId_TSIP = 'TSIP',
+    ActorTypeId_DNPC = 'DNPC',
+    ActorTypeId_GOC2 = 'GOC2',
+    ActorTypeId_BUII = 'BUII',
 };
 
 class ActorType_UnkClass {

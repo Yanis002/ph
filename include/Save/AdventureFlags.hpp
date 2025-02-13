@@ -35,6 +35,8 @@ enum AdventureFlag_ {
     /* 0x128 */ AdventureFlag_ReceivedGoldenCannon   = 296,
     /* 0x129 */ AdventureFlag_ReceivedGoldenHull     = 297,
 
+    /* 0x15C */ AdventureFlag_Unk15C = 348,
+
     /* 0x187 */ AdventureFlag_COUNT = 391,
 };
 

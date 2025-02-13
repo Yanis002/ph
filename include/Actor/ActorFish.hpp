@@ -14,6 +14,8 @@ public:
 
     UnkStruct_020c66bc();
     ~UnkStruct_020c66bc();
+
+    void func_ov000_020c66e4(Vec3p *param1, u16 param2, unk8 param3, unk32 param4);
 };
 
 class ActorFish : public Actor {
@@ -34,7 +36,7 @@ public:
     /* 180 */
 
     /* 00 */ virtual ~ActorFish() override;
-    /* 08 */ virtual void func_ov015_02183cb4(void) override;
+    /* 08 */ virtual bool func_ov015_02183cb4(void) override;
     /* 14 */ virtual void func_ov015_02184108(void) override;
     /* 1C */ virtual void func_ov015_0218427c(u16 *param1) override;
 

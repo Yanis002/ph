@@ -1,6 +1,13 @@
 #ifndef _NDS_OVERLAY_H
 #define _NDS_OVERLAY_H
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#define EXTERN_OVERLAY_ID(name_or_index) extern u32 OVERLAY_##name_or_index##_ID;
+#define OVERLAY_ID(name_or_index) ((u32) & OVERLAY_##name_or_index##_ID)
+
 typedef struct Overlay {
     /* 00 */ unk32 mId;
     /* 04 */ void *mBaseAddress;
@@ -26,5 +33,9 @@ void Overlay_RunGlobalDestructors(Overlay *overlay);
 bool Overlay_Destroy(Overlay *overlay);
 bool Overlay_Load(Overlay *overlay, unk32 param2);
 bool Overlay_Unload(Overlay *overlay, unk32 param2);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif

@@ -20,7 +20,7 @@ bool PlayerLinkBase::func_ov000_020bba00() {}
 bool PlayerLinkBase::func_ov000_020bba14() {}
 bool PlayerLinkBase::func_ov000_020bba28() {}
 void PlayerLinkBase::func_ov000_020bba48() {}
-void PlayerLinkBase::vfunc_18(s32 param1) {}
+bool PlayerLinkBase::vfunc_18(s32 param1) {}
 bool PlayerLinkBase::CanMove() {}
 bool PlayerLinkBase::vfunc_58() {}
 bool PlayerLinkBase::vfunc_5c() {}

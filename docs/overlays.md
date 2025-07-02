@@ -18,11 +18,11 @@ contribute to this list!
 `11` | ---             | 3    |
 `12` | Battle          | 3    | Handles battle mode.
 `13` | ---             | 3    |
-`14` | Land            | 4    | Link and essential land-based actors
-`15` | ---             | 4    |
+`14` | Land            | 4    | Link and essential land-based actors.
+`15` | Sea             | 4    | Handles the sea, Linebeck's ship, and sea-based actors.
 `16` | Startup         | N/A  | Exists briefly on game startup. Initializes RNG, messages, and more.
-`17` | ---             | 5    |
-`18` | ---             | 5    |
+`17` | Dungeon         | 5    | Handles courses for caves and dungeons.
+`18` | Overworld       | 5    | Handles overworld courses on land.
 `19` | ---             | 6    |
 `20` | ---             | 6    |
 `21` | ---             | 6    |

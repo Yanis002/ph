@@ -8,6 +8,7 @@
 #include "Render/ModelRender.hpp"
 
 class LinkStateDamage : public LinkStateBase {
+public:
     /* 00 (base) */
     /* 0c */ void *mUnk_0c;
     /* 10 */ unk32 mUnk_10;

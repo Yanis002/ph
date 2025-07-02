@@ -1,7 +1,7 @@
     .text       start:0x02077360 end:0x020d8710 kind:code align:32
-    .rodata     start:0x020d8710 end:0x020df2d8 kind:data align:4
+    .rodata     start:0x020d8710 end:0x020df2d8 kind:rodata align:4
     .init       start:0x020df2d8 end:0x020e1e28 kind:code align:4
-    .ctor       start:0x020e1e28 end:0x020e1f0c kind:data align:4
+    .ctor       start:0x020e1e28 end:0x020e1f0c kind:rodata align:4
     .data       start:0x020e1f20 end:0x020e92c0 kind:data align:32
     .bss        start:0x020e92c0 end:0x020ec718 kind:bss align:32
     .sbss       start:0x020ec718 end:0x020eece0 kind:bss align:4
@@ -16,11 +16,66 @@ src/00_Core/Actor/ActorManager.cpp:
     .text       start:0x020c3374 end:0x020c3df4
     .data       start:0x020e7248 end:0x020e7294
 
+src/00_Core/Actor/ActorSpawner.cpp:
+    complete
+    .text       start:0x020c3f3c end:0x020c4278
+
+src/00_Core/Actor/Dungeon/ActorSwitchObject.cpp:
+    .text       start:0x0208fa10 end:0x02090348
+    .init       start:0x020df618 end:0x020df658
+    .ctor       start:0x020e1e64 end:0x020e1e68
+    .data       start:0x020e28c8 end:0x020e2984
+    .sbss       start:0x020ecd04 end:0x020ecd24
+
+src/00_Core/Actor/Dungeon/ActorEventIcon.cpp:
+    .text       start:0x02090494 end:0x02090898
+    .init       start:0x020df698 end:0x020df6d8
+    .ctor       start:0x020e1e6c end:0x020e1e70
+    .data       start:0x020e2a40 end:0x020e2afc
+    .sbss       start:0x020ecd44 end:0x020ecd64
+
+src/00_Core/Actor/Navi/ActorNavi.cpp:
+    .text       start:0x020b8080 end:0x020b8578
+    .init       start:0x020e1278 end:0x020e12dc
+    .ctor       start:0x020e1ea8 end:0x020e1eac
+    .data       start:0x020e64b4 end:0x020e6614
+    .sbss       start:0x020ee140 end:0x020ee178
+
+src/00_Core/Actor/Navi/ActorForceNavi.cpp:
+    complete
+    .text       start:0x020b85cc end:0x020b8644
+    .init       start:0x020e12dc end:0x020e131c
+    .ctor       start:0x020e1eac end:0x020e1eb0
+    .data       start:0x020e6614 end:0x020e670c
+    .sbss       start:0x020ee178 end:0x020ee198
+
+src/00_Core/Actor/Navi/ActorNaviBase.cpp:
+    .text       start:0x020b87fc end:0x020bb0b8
+    .rodata     start:0x020dc7bc end:0x020dc7f8
+    .data       start:0x020e670c end:0x020e6874
+    .sbss       start:0x020ee198 end:0x020ee19c
+
+src/00_Core/Actor/Dungeon/ActorActionObject.cpp:
+    .text       start:0x020be138 end:0x020be3b8
+    .init       start:0x020e1ab4 end:0x020e1af4
+    .ctor       start:0x020e1eb4 end:0x020e1eb8
+    .data       start:0x020e6cdc end:0x020e6d98
+    .sbss       start:0x020ee4fc end:0x020ee51c
+
+src/00_Core/Actor/Navi/ActorWisdomNavi.cpp:
+    complete
+    .text       start:0x020c0b04 end:0x020c0b7c
+    .init       start:0x020e1af4 end:0x020e1b34
+    .ctor       start:0x020e1eb8 end:0x020e1ebc
+    .data       start:0x020e7038 end:0x020e7130
+    .sbss       start:0x020ee530 end:0x020ee550
+
 src/00_Core/Item/Item.cpp:
     .text       start:0x020acfc0 end:0x020ad030
     .rodata     start:0x020dc514 end:0x020dc664
 
 src/00_Core/Item/ItemManager.cpp:
+    complete
     .text       start:0x020ad030 end:0x020ae730
     .rodata     start:0x020dc664 end:0x020dc674
     .data       start:0x020e5bf8 end:0x020e6018
@@ -67,6 +122,7 @@ src/00_Core/Player/LinkStateItem.cpp:
     .data       start:0x020e59e0 end:0x020e5a2c
 
 src/00_Core/Player/LinkStateMove.cpp:
+    complete
     .text       start:0x020a8da4 end:0x020a8f14
     .data       start:0x020e5690 end:0x020e56fc
 

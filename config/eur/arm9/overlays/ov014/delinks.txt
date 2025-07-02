@@ -1,7 +1,7 @@
     .text       start:0x0211f640 end:0x02153b50 kind:code align:32
-    .rodata     start:0x02153b50 end:0x021541ec kind:data align:4
+    .rodata     start:0x02153b50 end:0x021541ec kind:rodata align:4
     .init       start:0x021541ec end:0x0215584c kind:code align:4
-    .ctor       start:0x0215584c end:0x0215598c kind:data align:4
+    .ctor       start:0x0215584c end:0x0215598c kind:rodata align:4
     .data       start:0x021559a0 end:0x0215abc0 kind:data align:32
     .bss        start:0x0215abc0 end:0x0215b4a0 kind:bss align:32
 
@@ -12,3 +12,11 @@ src/14_Land/Actor/ActorRupee.cpp:
     .ctor       start:0x0215591c end:0x02155920
     .data       start:0x02158994 end:0x02158a94
     .bss        start:0x0215b1f4 end:0x0215b214
+
+src/14_Land/Actor/Player/ActorRefill.cpp:
+    complete
+    .text       start:0x02134e24 end:0x02135940
+    .init       start:0x02154c14 end:0x02154d24
+    .ctor       start:0x021558ec end:0x021558f0
+    .data       start:0x021578b0 end:0x02157d70
+    .bss        start:0x0215af94 end:0x0215b034

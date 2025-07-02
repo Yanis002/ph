@@ -19,14 +19,15 @@ public:
     /* 14 */ virtual void vfunc_14();
     /* 18 */ virtual void vfunc_18();
     /* 1c */ virtual void vfunc_1c();
-    /* 20 */ virtual void vfunc_20();
+    /* 20 */ virtual void vfunc_20(unk32 param1, const char *param2, unk32 param3, unk32 param4, unk32 param5, unk32 param6);
     /* 24 */ virtual void vfunc_24();
     /* 28 */ virtual void vfunc_28();
     /* 2c */ virtual void vfunc_2c();
     /* 30 */ virtual void vfunc_30();
-    /* 34 */ virtual bool GetChildNode(unk32 param1, const char *description, u32 parent, s32 *param4);
+    /* 34 */ virtual bool GetChildNode(unk32 param1, const char *description, u32 parent, s32 *param4, unk32 param5,
+                                       unk32 param6, unk32 param7, unk32 param8);
     /* 38 */ virtual void vfunc_38();
-    /* 3c */ virtual void vfunc_3c();
+    /* 3c */ virtual void vfunc_3c(unk32 param1, void *param2);
     /* 40 */
 
     DebugHierarchyBase();

@@ -1,5 +1,5 @@
 #include "Player/LinkStateBase.hpp"
 
-LinkStateBase *GetLinkState(s32 index) {
+LinkStateBase *GetLinkState(LinkStateId index) {
     return gLinkStates[index];
 }

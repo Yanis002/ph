@@ -80,6 +80,8 @@ translations. Feel free to contribute to this list!
 `PSBA` | Pushable Armos | Armos statue
 `PSBL` | Push Block
 `RFLR` | Repeating? Floor | Moves repetetively along a set path
+`RLST` | Rolling Stone
+`RLSG` | Rolling Stone Generator
 `SPRL` | Spike Roller
 `WBLK` | Wind Block | The blocks in the Wind Temple that blow air
 `WPHL` | Warp Hole | Blue warp
@@ -101,7 +103,7 @@ translations. Feel free to contribute to this list!
 `CHUC` | ChuChu
 `CROW` | Crow | Bird that steals rupees
 `EGST` | Escape Ghost | Poe
-`FLTB` | Floating ??? | Flying pot
+`FLTB` | Flying Tsubo (つぼ) | Flying pot
 `FSHB` | Fish Bullet | Geozard bullet
 `FSHM` | Fishman | Geozard
 `GELL` | Gel
@@ -116,7 +118,7 @@ translations. Feel free to contribute to this list!
 `OCSH` | Octa Shell | Octorok bullet
 `OCTA` | Octarock | Octorok
 `PBLN` | Petit Blin | Miniblin
-`PB ` | | Eye Slug
+`PBZK` | | Eye Slug
 `PLSV` | Pols Voice
 `POON` | Pōn (ポーン) | Hardhat beetle
 `RAT0` | Rat
@@ -124,11 +126,15 @@ translations. Feel free to contribute to this list!
 `RAT1`
 `SNAK` | Snake | Rope, the purple snake enemy
 `SPDR` | Spider | Skulltula
+`STLB` | Stalfos bone | Projectile thrown by Stalfos
 `STLF` | Stalfos
+`STLH` | Stalfos head
+`STLP` | Stalfos | Stationary, throws bones constantly
 `STLW` | Stalfos Warrior
 `TAIL` | Tail | Moldorm head
 `TALB` | Tail Body | One of Moldorm's 3 body parts
 `TEKT` | Tektite
+`UBLN` | Umi (うみ) Blin | Pirate miniblin
 `WTCR` | Watcher | Phantom eye
 `YETI` | Yook
 
@@ -167,6 +173,7 @@ translations. Feel free to contribute to this list!
 `CMNC` | Character Man C | Doudo, man in blue of Mercay Island
 `COMA` | Character Old A | Tuzi, woman in brown of Mercay Island
 `COBS` | Character Old B/Shared | Maltza, man at the bar of Mercay Island
+`CPSK` | Carpenter Spirit Knight? | Cobble spirit (Brant, Bremeur, Doylan, Max)
 `CRPS` | Corpse | Non-moving skeleton with a blue spirit
 `CSTM` | Character Standard Man | Adult Male NPC
 `CWIF` | Character Wife | Maronie, woman in purple of Molida Island
@@ -220,7 +227,10 @@ translations. Feel free to contribute to this list!
 `FSRL` | Fish Reel | Roaming fish
 `GFIS` | Golden Frog ???
 `GSIP` | Ghost Ship
+`GYRG` | Gyorg
+`GYMG` | Gyorg monster generator
 `HRCN` | Hurricane | Stops you from going to other seas
+`KMGA` | Kamome (カモメ) Generator | Seagull generator
 `KMME` | Kamome (カモメ) | Seagull
 `LOND` | | Explosive barrel
 `PLSP` | Pirate Lady Ship | Jolene's ship
@@ -231,6 +241,7 @@ translations. Feel free to contribute to this list!
 `SLTR` | Salvage ??? | Salvage arm
 `SLOC` | Salvage Octorok
 `SLRC` | Salvage Rupee ???
+`SNGA` | Sea NPC Generator | Spawns sea monsters
 `SNAV` | Sea Navi | Shows proximity to the Ghost Ship
 `SPKN` | Sea Plant ??? | Eye Plant
 `SROP` | Sea Rope | Sea Trap rope, jump over to avoid damage

@@ -1,4 +1,5 @@
 #include "Actor/ActorManager.hpp"
+#include "DTCM/UnkStruct_027e077c.hpp"
 #include "DTCM/UnkStruct_027e103c.hpp"
 #include "Map/MapManager.hpp"
 
@@ -8,8 +9,6 @@ extern "C" Cylinder *func_ov000_020c3ef0(void *, u32 index);
 extern "C" bool func_ov000_020c3f08(void *, u32 index);
 extern "C" void func_ov000_020c3f3c(void *, u32 index, Cylinder *cylinder);
 extern "C" void func_ov000_020c3f54(void *, u32 param2);
-extern s32 data_027e077c;
-extern u8 data_02056be4[];
 
 ARM void ActorManager::DeleteActor(u32 index, bool param2) {
     if (!param2) {
@@ -52,7 +51,7 @@ ARM void ActorManager::func_ov00_020c3484(ActorRef *ref, ActorManager *actorMgr,
 
     q20 minDistance       = 0x7fffffff;
     Actor **actorIter     = actorMgr->mActorTable;
-    u8 unkByte            = data_02056be4[data_027e077c];
+    u8 unkByte            = data_02056be4[data_027e077c.GetUnk0()];
     bool unk1             = (unkByte & 1) != 0;
     Actor **actorTableEnd = actorIter + actorMgr->mMaxActorIndex;
 
@@ -155,7 +154,7 @@ ARM Actor *ActorManager::GetActor(ActorRef *ref) {
 
 ARM bool FilterActor::Filter(Actor *actor) {
     if (mType != actor->mType) return false;
-    if (mUnk_08 != -1 && mUnk_08 != actor->mUnk_034) return false;
+    if (mUnk_08 != -1 && mUnk_08 != actor->mUnk_034.id) return false;
     if (mExcludeRefs != NULL) {
         for (s32 i = 0; mExcludeRefs[i].id != -1; ++i) {
             ActorRef *ref          = &mExcludeRefs[i];
@@ -313,7 +312,7 @@ ARM s32 ActorManager::func_ov00_020c3bb0(unk32 param1, s32 *param2) {
     if (param2 != NULL) *param2 = 0;
 
     AABB boxes[8];
-    s32 numBoxes = gMapManager->GetTriggerBoundingBoxes(param1, boxes, ARRAY_LEN(boxes));
+    s32 numBoxes = gMapManager->GetTriggerBoundingBoxes(param1, boxes, ARRAY_LEN_U(boxes));
     if (numBoxes <= 0) return 0;
 
     s32 i;
@@ -350,7 +349,7 @@ ARM s32 ActorManager::func_ov00_020c3bb0(unk32 param1, s32 *param2) {
 
 ARM void ActorManager::func_ov00_020c3ce8(unk32 param1, bool param2) {
     AABB boxes[8];
-    s32 numBoxes = gMapManager->GetTriggerBoundingBoxes(param1, boxes, ARRAY_LEN(boxes));
+    s32 numBoxes = gMapManager->GetTriggerBoundingBoxes(param1, boxes, ARRAY_LEN_U(boxes));
     if (numBoxes <= 0) return;
 
     s32 i;

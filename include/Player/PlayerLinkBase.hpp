@@ -50,7 +50,7 @@ public:
     /* 0c */ virtual bool CanMove() override;
     /* 10 */ virtual void vfunc_10(Cylinder *param1) override;
     /* 14 */ virtual void vfunc_14(Cylinder *param1) override;
-    /* 18 */ virtual void vfunc_18(s32 param1) override;
+    /* 18 */ virtual bool vfunc_18(s32 param1) override;
     /* 1c */ virtual void Init() override;
     /* 20 */ virtual void vfunc_20() override;
     /* 24 */ virtual void UpdatePos() override;

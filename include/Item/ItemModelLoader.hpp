@@ -27,3 +27,5 @@ public:
     static void Create();
     static void Destroy();
 };
+
+extern ItemModelLoader *gItemModelLoader;

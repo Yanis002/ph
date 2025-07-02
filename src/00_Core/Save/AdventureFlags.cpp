@@ -1,9 +1,34 @@
 #include "Save/AdventureFlags.hpp"
+#include "Cutscene/CutsceneHandler.hpp"
 
-bool AdventureFlags::Exists() {}
+extern void func_ov000_020980f8(CutsceneHandler *cutsceneHandler);
+extern unk32 func_ov000_020980fc(CutsceneHandler *cutsceneHandler);
+extern bool func_ov000_02098114(CutsceneHandler *cutsceneHandler);
+extern u8 data_ov000_020e310c[];
+extern u8 data_ov000_020e313c[];
+extern u8 data_ov000_020e3140[];
+extern u8 data_ov000_020e3144[];
+extern u8 data_ov000_020e314c[];
+extern u8 data_ov000_020e314e[];
+extern u8 data_ov000_020e3150[];
+extern u8 data_ov000_020e3154[];
+extern u8 data_ov000_020e3155[];
+extern u8 data_ov000_020e3156[];
+
+bool AdventureFlags::Exists() {
+    return gAdventureFlags != NULL;
+}
+
 void AdventureFlags::CopyTo(unk32 *flags) {}
-void AdventureFlags::func_ov00_02097674() {}
-s32 AdventureFlags::func_ov00_02097684() {}
+
+void AdventureFlags::func_ov00_02097674() {
+    func_ov000_020980f8(this->mCutsceneHandler);
+}
+
+s32 AdventureFlags::func_ov00_02097684() {
+    return func_ov000_020980fc(this->mCutsceneHandler);
+}
+
 void AdventureFlags::Load() {}
 void AdventureFlags::func_ov00_020976c8() {}
 void AdventureFlags::func_ov00_02097700() {}
@@ -20,22 +45,83 @@ bool AdventureFlags::func_ov00_02097bbc() {}
 bool AdventureFlags::func_ov00_02097bcc() {}
 bool AdventureFlags::func_ov00_02097bcc(s32 param2) {}
 s32 AdventureFlags::func_ov00_02097c08() {}
-bool AdventureFlags::Get_FlagsUnk_30_Flag(int index) {}
-unk8 AdventureFlags::Get_FlagsUnk_49(int index) {}
-unk8 AdventureFlags::Get_FlagsUnk_48(int index) {}
-unk8 AdventureFlags::Get_FlagsUnk_4a(int index) {}
-unk16 AdventureFlags::Get_FlagsUnk_42(int index) {}
-unk16 AdventureFlags::Get_FlagsUnk_40(int index) {}
-unk32 AdventureFlags::Get_FlagsUnk_38(int index) {}
-unk32 AdventureFlags::Get_FlagsUnk_34(int index) {}
-unk32 AdventureFlags::Get_FlagsUnk_44(int index) {}
-unk32 AdventureFlags::Get_FlagsUnk_30(int index) {}
-bool AdventureFlags::Get_FlagsUnk_00(int index, FlagsUnk2 *result) {}
-bool AdventureFlags::Get_FlagsUnk_18(int index, FlagsUnk2 *result) {}
-FlagsUnk *AdventureFlags::Get_FlagsUnk(int index) {}
-bool AdventureFlags::func_ov00_02097e6c() {}
-bool AdventureFlags::func_ov00_02097e7c() {}
-bool AdventureFlags::func_ov00_02097ea4() {}
+
+bool AdventureFlags::Get_FlagsUnk_30_Flag(s32 index) {
+    unk32 unk30 = this->Get_FlagsUnk_30(index);
+
+    return this->Get(unk30);
+}
+
+u8 AdventureFlags::Get_FlagsUnk_49(s32 index) {
+    return data_ov000_020e3155[index * 0x4C];
+}
+
+u8 AdventureFlags::Get_FlagsUnk_48(s32 index) {
+    return data_ov000_020e3154[index * 0x4C];
+}
+
+u8 AdventureFlags::Get_FlagsUnk_4a(s32 index) {
+    return data_ov000_020e3156[index * 0x4C];
+}
+
+u16 AdventureFlags::Get_FlagsUnk_42(s32 index) {
+    return *(u16 *) (data_ov000_020e314e + index * 0x4C);
+}
+
+u16 AdventureFlags::Get_FlagsUnk_40(s32 index) {
+    return *(unk16 *) (data_ov000_020e314c + index * 0x4C);
+}
+
+unk32 AdventureFlags::Get_FlagsUnk_38(s32 index) {
+    return *(unk32 *) (data_ov000_020e3144 + index * 0x4C);
+}
+
+unk32 AdventureFlags::Get_FlagsUnk_34(s32 index) {
+    return *(unk32 *) (data_ov000_020e3140 + index * 0x4C);
+}
+
+unk32 AdventureFlags::Get_FlagsUnk_44(s32 index) {
+    return *(unk32 *) (data_ov000_020e3150 + index * 0x4C);
+}
+
+unk32 AdventureFlags::Get_FlagsUnk_30(s32 index) {
+    return *(unk32 *) (data_ov000_020e313c + index * 0x4C);
+}
+
+bool AdventureFlags::Get_FlagsUnk_00(s32 index, FlagsUnk2 *result) {}
+bool AdventureFlags::Get_FlagsUnk_18(s32 index, FlagsUnk2 *result) {}
+
+FlagsUnk *AdventureFlags::Get_FlagsUnk(s32 index) {
+    return (FlagsUnk *) (data_ov000_020e310c + index * 0x4C);
+}
+
+bool AdventureFlags::func_ov00_02097e6c() {
+    return func_ov000_02098114(this->mCutsceneHandler);
+}
+
+bool AdventureFlags::func_ov00_02097e7c() {
+    bool bVar1;
+
+    bVar1 = this->func_ov00_02097e6c();
+    if (bVar1) {
+        bVar1 = this->mCutsceneHandler->SkipCutscene(0);
+        return bVar1;
+    }
+
+    return false;
+}
+
+bool AdventureFlags::func_ov00_02097ea4() {
+    bool bVar1;
+
+    bVar1 = this->func_ov00_02097e6c();
+    if (bVar1) {
+        bVar1 = this->mCutsceneHandler->SkipCutscene(1);
+        return bVar1;
+    }
+
+    return false;
+}
 unk32 AdventureFlags::func_ov00_02097ecc() {}
 void *AdventureFlags::func_ov00_02097f8c() {}
 void *AdventureFlags::func_ov00_02097fac() {}

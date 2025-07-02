@@ -35,8 +35,8 @@ struct Actor_UnkStruct_020 {
     /* 08 */ u8 mUnk_08[2];
     /* 0a */ u8 mUnk_0a[2];
     /* 0c */ unk8 mUnk_0c;
-    /* 0d */ unk8 mUnk_0d;
-    /* 0e */ unk8 mUnk_0e;
+    /* 0d */ u8 mUnk_0d;
+    /* 0e */ u8 mUnk_0e;
     /* 0f */ unk8 mUnk_0f;
     /* 10 */ unk32 mUnk_10;
     /* 14 */
@@ -64,6 +64,7 @@ struct Actor_UnkStruct_0a4 {
     /* 14 */
 
     Actor_UnkStruct_0a4(q20 x, q20 y, q20 z, s32 unk_10);
+    void func_ov000_0207a1c8(unk32 param1, Vec3p *param2);
 };
 
 class KillPickupsFilter : FilterActorReturn, public FilterActorBase {
@@ -83,7 +84,8 @@ enum PlayerCollide_ {
     PlayerCollide_Gongoron = 0x8,
     PlayerCollide_Hammer   = 0x10,
 
-    PlayerCollide_PickupFlags = PlayerCollide_Hammer | PlayerCollide_Gongoron | PlayerCollide_Sword | PlayerCollide_Player,
+    /* 0x1b */ PlayerCollide_PickupFlags =
+        PlayerCollide_Hammer | PlayerCollide_Gongoron | PlayerCollide_Sword | PlayerCollide_Player,
 };
 
 struct Knockback {
@@ -108,8 +110,7 @@ public:
     /* 012 */ unk16 mUnk_012;
     /* 014 */ Vec3p mUnk_014;
     /* 020 */ Actor_UnkStruct_020 mUnk_020;
-    /* 034 */ unk32 mUnk_034;
-    /* 038 */ unk32 mUnk_038;
+    /* 034 */ ActorRef mUnk_034;
     /* 03c */ unk32 mUnk_03c;
     /* 040 */ ActorRef mUnk_040;
     /* 048 */ Vec3p mPos;
@@ -136,10 +137,10 @@ public:
     /* 108 */ unk8 mUnk_108;
     /* 109 */ unk8 mUnk_109;
     /* 10a */ unk8 mUnk_10a[0x6];
-    /* 110 */ unk8 mUnk_110;
+    /* 110 */ bool mUnk_110;
     /* 111 */ bool mUnk_111;
-    /* 112 */ unk8 mUnk_112;
-    /* 113 */ unk8 mUnk_113;
+    /* 112 */ bool mUnk_112;
+    /* 113 */ bool mUnk_113;
     /* 114 */ unk8 mUnk_114;
     /* 115 */ unk8 mUnk_115;
     /* 116 */ unk8 mUnk_116;
@@ -172,8 +173,8 @@ public:
     /* 158 */
 
     /* 00 */ virtual ~Actor();
-    /* 08 */ virtual bool vfunc_08();
-    /* 0c */ virtual void vfunc_0c();
+    /* 08 */ virtual bool Init();
+    /* 0c */ virtual bool vfunc_0c();
     /* 10 */ virtual void vfunc_10(u32 param1);
     /* 14 */ virtual void vfunc_14(u32 param1);
     /* 18 */ virtual void vfunc_18(u32 param1);
@@ -227,7 +228,7 @@ public:
     bool func_ov00_020c195c();
     bool func_ov00_020c198c();
     void KillPickupItemActors();
-    void func_Ov00_020c1bfc(s32 param1);
+    bool func_ov00_020c1bfc(s32 param1);
     void func_ov00_020c1c20(s32 param1, unk32 param2);
     bool IsNearLink();
     void func_ov00_020c1cf8();

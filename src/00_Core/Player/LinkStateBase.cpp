@@ -16,7 +16,7 @@ void LinkStateBase::UpdateSwordShieldInUse() {}
 void LinkStateBase::func_ov00_020a81b8(unk32 param1, unk32 param2) {}
 LinkStateItem *LinkStateBase::GetLinkItemState() {}
 void LinkStateBase::LookAt(Vec3p *target) {}
-void LinkStateBase::func_ov00_020a81fc() {}
+void LinkStateBase::func_ov00_020a81fc(Vec3p *param1, unk32 param2) {}
 void LinkStateBase::AddHealth(s16 amount) {}
 void LinkStateBase::func_ov00_020a8224(unk32 param1) {}
 void LinkStateBase::TurnTo(s16 angle, unk32 param2, unk32 speed) {}
@@ -38,20 +38,20 @@ bool LinkStateBase::func_ov00_020a8638(unk32 param1) {}
 void LinkStateBase::Clear_PlayerLinkBase_Unk48(u16 flags) {}
 void LinkStateBase::func_ov00_020a8680(unk32 param1, unk16 param2, bool param3) {}
 void LinkStateBase::PlayerLinkBase_func_ov00_020bccc8() {}
-bool LinkStateBase::PlayerLinkBase_vfunc_58() {}
+bool LinkStateBase::PlayerLinkBase_vfunc_58(unk32 param1, ActorRef *param2) {}
 bool LinkStateBase::func_ov00_020a8704(s16 *pAngle) {}
 bool LinkStateBase::func_ov00_020a8774(Vec3p *param1, s32 angle) {}
 void LinkStateBase::func_ov00_020a8844(Vec3p *param1, bool param2, bool param3) {}
 void LinkStateBase::func_ov00_020a8954(bool param1, unk32 *param2) {}
 void LinkStateBase::func_ov00_020a8994() {}
-void LinkStateBase::func_ov00_020a89bc(unk32 param1, unk32 param2) {}
+void LinkStateBase::func_ov00_020a89bc(LinkStateBase_UnkStruct1 *param1, unk32 param2) {}
 void LinkStateBase::func_ov00_020a8a08(unk32 param1) {}
-void LinkStateBase::func_ov00_020a8a4c(unk32 param1, unk32 param2) {}
+void LinkStateBase::func_ov00_020a8a4c(const void *param1, unk32 param2) {}
 void LinkStateBase::func_ov00_020a8a90(unk32 param1) {}
 void LinkStateBase::func_ov00_020a8ab0(unk32 param1) {}
 void LinkStateBase::func_ov00_020a8ad0(unk32 param1) {}
 void LinkStateBase::func_ov00_020a8b04(s32 param1, bool param2) {}
-void LinkStateBase::func_ov00_020a8b3c(s32 param1) {}
+unk32 LinkStateBase::func_ov00_020a8b3c(s32 param1) {}
 bool LinkStateBase::func_ov00_020a8b80() {}
 bool LinkStateBase::HasFlags_PlayerLinkBase_Unk48(u16 flags) {}
 unk8 LinkStateBase::Get_PlayerLinkBase_Unk5e() {}

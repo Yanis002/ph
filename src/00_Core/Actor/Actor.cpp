@@ -5,6 +5,8 @@ extern "C" {
 #include "Actor/Actor.hpp"
 #include "Actor/ActorManager.hpp"
 #include "Actor/ActorPlayerDummy.hpp"
+#include "DTCM/UnkStruct_027e077c.hpp"
+#include "DTCM/UnkStruct_027e103c.hpp"
 #include "Item/ItemManager.hpp"
 #include "Map/MapManager.hpp"
 #include "Player/EquipSword.hpp"
@@ -46,8 +48,7 @@ ARM Actor::Actor() :
     mUnk_010(0),
     mUnk_011(0),
     mUnk_012(0),
-    mUnk_034(-1),
-    mUnk_038(-1),
+    mUnk_034(-1, -1),
     mUnk_03c(-1),
     mUnk_040(-1, -1),
     mGravity(FLOAT_TO_Q20(0.0498)),
@@ -111,11 +112,11 @@ ARM Actor::Actor() :
 
 ARM Actor::~Actor() {}
 
-ARM bool Actor::vfunc_08() {
+ARM bool Actor::Init() {
     return true;
 }
 
-ARM void Actor::vfunc_0c() {}
+ARM bool Actor::vfunc_0c() {}
 ARM void Actor::vfunc_10(u32 param1) {}
 ARM void Actor::vfunc_24() {}
 ARM void Actor::vfunc_28() {}
@@ -255,20 +256,9 @@ ARM bool Actor::func_ov00_020c195c() {
     return true;
 }
 
-struct UnkStruct2 {
-    /* 0 */ u32 mUnk_0;
-    /* 4 */ u32 mUnk_4;
-    /* 8 */
-};
-extern UnkStruct2 data_027e077c;
-extern u8 data_02056be4[];
-extern "C" bool func_ov05_02103f4c(s32 param1);
-extern s32 data_027e103c;
 ARM bool Actor::func_ov00_020c198c() {
-    u32 unk1 = data_027e077c.mUnk_0;
-    u32 unk2 = data_027e077c.mUnk_4;
-    if (data_027e077c.mUnk_0 != data_027e077c.mUnk_4 || (data_02056be4[unk1] & 1) != 0 || (data_02056be4[unk2] & 4) != 0 ||
-        func_ov05_02103f4c(data_027e103c) || gPlayer->mHealth <= 0)
+    if (data_027e077c.GetUnk0() != data_027e077c.GetUnk4() || (data_02056be4[data_027e077c.GetUnk0()] & 1) != 0 ||
+        (data_02056be4[data_027e077c.GetUnk4()] & 4) != 0 || data_027e103c->func_ov005_02103f4c() || gPlayer->mHealth <= 0)
     {
         return false;
     }
@@ -318,8 +308,8 @@ ARM void Actor::SetTransform(Transform *transform) {
 
 ARM void Actor::vfunc_a8() {}
 
-ARM void Actor::func_Ov00_020c1bfc(s32 param1) {
-    gMapManager->func_ov00_02084be0(mUnk_020.mUnk_0a[param1], mUnk_020.mUnk_08[param1]);
+ARM bool Actor::func_ov00_020c1bfc(s32 param1) {
+    return gMapManager->func_ov00_02084be0(mUnk_020.mUnk_0a[param1], mUnk_020.mUnk_08[param1]);
 }
 
 ARM void Actor::func_ov00_020c1c20(s32 param1, unk32 param2) {
@@ -870,7 +860,7 @@ ARM bool Actor::func_ov00_020c3094() {
     Vec3p pos, prevPos;
     Vec3p_Copy(&mPos, &pos);
     Vec3p_Copy(&mPrevPos, &prevPos);
-    s32 unk1 = gMapManager->func_ov00_02083ef8(&pos, &prevPos, 0);
+    s32 unk1 = gMapManager->func_ov00_02083ef8(&pos, &prevPos, false);
     if (mPos.y <= unk1) {
         result = true;
         mPos.y = unk1;
@@ -896,7 +886,7 @@ ARM bool Actor::func_ov00_020c313c(u32 param1) {
 
 ARM void Actor::func_ov00_020c3158() {
     if (mUnk_03c < 0) return;
-    gMapManager->func_ov00_02084c5c(mUnk_03c, 1);
+    gMapManager->SetMapDataFlag1(mUnk_03c, 1);
 }
 
 ARM void Actor::Kill() {

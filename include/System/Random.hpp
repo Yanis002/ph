@@ -78,4 +78,4 @@ struct Random {
     }
 };
 
-extern Random *gRandom;
+extern Random gRandom;

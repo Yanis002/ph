@@ -29,7 +29,7 @@ public:
     /* 0c */ virtual bool CanMove();
     /* 10 */ virtual void vfunc_10(Cylinder *param1)                      = 0;
     /* 14 */ virtual void vfunc_14(Cylinder *param1)                      = 0;
-    /* 18 */ virtual void vfunc_18()                                      = 0;
+    /* 18 */ virtual bool vfunc_18(s32 param1)                            = 0;
     /* 1c */ virtual void Init()                                          = 0;
     /* 20 */ virtual void vfunc_20()                                      = 0;
     /* 24 */ virtual void UpdatePos()                                     = 0;
@@ -48,8 +48,8 @@ public:
 
     void SetUpdatePos(bool updatePos);
     void SetVisible(bool visible);
-    EquipSword *GetEquipSword();
-    EquipShield *GetEquipShield();
+    static EquipSword *GetEquipSword();
+    static EquipShield *GetEquipShield();
     void LookAt(Vec3p *target);
     bool func_ov00_020a7c00(s32 param1);
     bool CollidesWith(Cylinder *cylinder);
@@ -64,4 +64,4 @@ public:
 extern PlayerBase *gPlayer;
 extern Vec3p gPlayerPos;
 extern Vec3p gPlayerVel;
-extern s16 gPlayerAngle;
+extern u16 gPlayerAngle;

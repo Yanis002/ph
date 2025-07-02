@@ -17,14 +17,13 @@
 - `extract/`: Game assets, extracted from your own supplied ROM
     - `eur|usa/`: [`ds-rom`](https://github.com/AetiasHax/ds-rom) extract directories
 - `include/`: Include files
-- `src/`: Source C/C++ files
+- `libs/`: Source C/C++ files for libraries used by the game
+- `src/`: Source C/C++ files for the game
 - `tools/`: Tools for this project
     - `mwccarm/`: Compiler toolchain
     - `configure.py`: Generates `build.ninja`
-    - `m2ctx.py`: Generates context for [decomp.me](https://decomp.me/)
     - `mangle.py`: Shows mangled symbol names in a given C/C++ file
     - `requirements.txt`: Python libraries
-    - `setup.py`: Sets up the project
 - `*.sha1`: SHA-1 digests of different versions of the game
 
 ## Decompiling

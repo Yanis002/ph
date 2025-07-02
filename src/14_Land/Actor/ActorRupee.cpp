@@ -5,7 +5,6 @@
 #include "System/Random.hpp"
 
 extern "C" {
-void func_ov000_0207a1c8(bool *param_1, unk32 param_2, Vec3p *param_3);
 void func_0202bc38(unk32 param_1, Vec3p *param_2, u32 param_3, Actor_UnkStruct_012 *param_4, bool);
 void func_ov005_02102c2c(u32 *param_1, int param_2, Vec3p *param_3, int param_4, int param_5, u32 param_6, int param_7,
                          char param_8, char param_9, char param_10);
@@ -37,7 +36,7 @@ ActorRupee::ActorRupee() {
 }
 
 // https://decomp.me/scratch/1qjCc
-bool ActorRupee::vfunc_08() {
+bool ActorRupee::Init() {
     u32 dVar5;
     u32 iVar7;
 
@@ -71,9 +70,9 @@ bool ActorRupee::vfunc_08() {
                 func_ov14_0213b204(0);
                 break;
             case 1:
-                q20 x = gRandom->Next(FLOAT_TO_Q20(0.1335));
-                q20 y = gRandom->Next(FLOAT_TO_Q20(0.2));
-                q20 z = gRandom->Next(FLOAT_TO_Q20(0.1335));
+                q20 x = gRandom.Next(FLOAT_TO_Q20(0.1335));
+                q20 y = gRandom.Next(FLOAT_TO_Q20(0.2));
+                q20 z = gRandom.Next(FLOAT_TO_Q20(0.1335));
 
                 mVel.x = x - FLOAT_TO_Q20(0.0666);
                 mVel.y = y + FLOAT_TO_Q20(0.3333);
@@ -263,14 +262,14 @@ void ActorRupee::vfunc_14(u32 param1) {
     if (func_ov00_020c313c(param1)) {
         Update(false);
     }
-    func_ov000_0207a1c8(&mUnk_0a4.mUnk_00, param1, &mPos);
+    mUnk_0a4.func_ov000_0207a1c8(param1, &mPos);
 }
 
 void ActorRupee::vfunc_18(u32 param1) {
     if (func_ov00_020c313c(param1)) {
         Update(true);
     }
-    func_ov000_0207a1c8(&mUnk_0a4.mUnk_00, param1, &mPos);
+    mUnk_0a4.func_ov000_0207a1c8(param1, &mPos);
 }
 
 #define VFUNC20_COND (param1 ? mUnk_0a4.mUnk_01 : mUnk_0a4.mUnk_00)

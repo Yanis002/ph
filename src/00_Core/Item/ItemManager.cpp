@@ -1,6 +1,8 @@
 #include "Item/ItemManager.hpp"
 #include "DTCM/UnkStruct_027e0d38.hpp"
 #include "DTCM/UnkStruct_027e0f78.hpp"
+#include "DTCM/UnkStruct_027e103c.hpp"
+#include "Item/ItemModelLoader.hpp"
 #include "Map/MapManager.hpp"
 #include "Player/PlayerLinkBase.hpp"
 #include "Player/PlayerManager.hpp"
@@ -126,7 +128,7 @@ ARM FairyId ItemManager::GetEquippedFairy() const {
     return fairy;
 }
 
-ARM ActorNavi *ItemManager::GetFairy(FairyId id) const {
+ARM ActorNaviBase *ItemManager::GetFairy(FairyId id) const {
     return mFairies[id];
 }
 
@@ -158,17 +160,15 @@ ARM ItemModel *ItemManager::GetItemModel(ItemModelId id) {
     return mItemModels[id];
 }
 
-extern unk32 gItemModelLoader;
-extern "C" void *func_ov00_020bb3a8(unk32 param1, u32 index);
-extern "C" void func_ov00_020c0bdc(void *param1, unk32 param2);
+extern "C" void func_ov000_020c0bdc(unk32 param1, unk32 param2);
 ARM void ItemManager::func_ov00_020ad538(unk32 param1) const {
-    void *unk1 = func_ov00_020bb3a8(gItemModelLoader, 6);
-    func_ov00_020c0bdc(unk1, param1);
+    unk32 unk1 = gItemModelLoader->func_ov000_020bb3a8(6);
+    func_ov000_020c0bdc(unk1, param1);
 }
 
 ARM void ItemManager::func_ov00_020ad560(unk32 param1) const {
-    void *unk1 = func_ov00_020bb3a8(gItemModelLoader, 7);
-    func_ov00_020c0bdc(unk1, param1);
+    unk32 unk1 = gItemModelLoader->func_ov000_020bb3a8(7);
+    func_ov000_020c0bdc(unk1, param1);
 }
 
 ARM ItemModel *ItemManager::GetDungeonItemModel(u32 index) {
@@ -176,8 +176,8 @@ ARM ItemModel *ItemManager::GetDungeonItemModel(u32 index) {
 }
 
 ARM void ItemManager::func_ov00_020ad594(unk32 param1) const {
-    void *unk1 = func_ov00_020bb3a8(gItemModelLoader, 11);
-    func_ov00_020c0bdc(unk1, param1);
+    unk32 unk1 = gItemModelLoader->func_ov000_020bb3a8(11);
+    func_ov000_020c0bdc(unk1, param1);
 }
 
 ARM void ItemManager::Sword_vfunc_38(unk32 param1) {
@@ -231,30 +231,25 @@ ARM u16 ItemManager::GetAmmo(ItemFlag equipId) const {
     return (*mAmmo)[equipId];
 }
 
-ARM void ItemManager::GiveAmmo(ItemFlag equipId, u16 amount) {
+ARM void ItemManager::GiveAmmo(ItemFlag equipId, u32 amount) {
     (*mAmmo)[equipId] += amount;
     if ((*mAmmo)[equipId] <= this->GetMaxAmmo(equipId)) return;
     (*mAmmo)[equipId] = this->GetMaxAmmo(equipId);
 }
 
-extern "C" unk32 func_ov00_02078b40(UnkStruct_027e0d38 *param1);
 extern void *data_027e10a4;
-extern "C" bool func_ov15_02136670(void *param1);
-extern unk8 data_ov29_0217a4ac[];
-extern "C" bool _ZN14PlayerLinkBase18func_ov00_020bbd80Ei(unk32 param1, unk32 param2);
-extern "C" bool _ZNK11ItemManager7HasItemEi();
-extern "C" void _ZN11ItemManager12GetEquipItemEi();
+extern "C" bool func_ov015_02136670(void *param1);
+extern u8 data_ov022_0217a4ac[];
 ARM bool ItemManager::func_ov00_020ad790(unk32 param1) {
-    unk32 unk1 = func_ov00_02078b40(data_027e0d38);
-    if (unk1 == 2) return func_ov15_02136670(data_027e10a4);
+    unk32 unk1 = data_027e0d38->func_ov000_02078b40();
+    if (unk1 == 2) return func_ov015_02136670(data_027e10a4);
     if (data_027e0d38->mUnk_14 == 1) return false;
-    // NONMATCH: OverlayId_29 should be in constant pool
-    if (gOverlayManager.mLoadedOverlays[OverlayIndex_6] == OverlayId_29 && data_ov29_0217a4ac[0x54] != 0) {
+    if (gOverlayManager.mLoadedOverlays[OverlayIndex_6] == OverlayId_29 && data_ov022_0217a4ac[0x54] != 0) {
         return false;
     }
 
     ItemFlag equipId = mForcedItem;
-    bool unk2        = !gMapManager->func_ov00_020849f8(equipId);
+    bool unk2        = !gMapManager->func_ov00_020849f8();
     if (mEquippedItem != ItemFlag_None && (unk2 || (u32) mEquippedItem - 9 <= 1) &&
         (gPlayerLink == 0 || gPlayerLink->func_ov000_020bbd80(param1)) && this->HasItem(mEquippedItem))
     {
@@ -320,7 +315,7 @@ THUMB void ItemManager::SetUnk_09e(u32 index, u16 value) {
 }
 
 const u16 sQuiverSizes[]  = {20, 20, 30, 50};
-const u16 sBombBagSizes[] = {10, 20, 30};
+const u16 sBombBagSizes[] = {10, 20, 30, 0};
 
 THUMB u16 ItemManager::GetMaxAmmo(ItemFlag equipId) const {
     switch (equipId) {
@@ -379,8 +374,8 @@ THUMB void ItemManager::RemoveItem(ItemFlag item) {
 
 extern ItemModel **data_027e1058;
 extern ItemModel **data_027e105c;
-extern "C" ItemModel *func_ov00_02079ffc(void *, const char *modelName, const char *textureName, unk32 param4, unk8 param5,
-                                         unk8 param6, bool param7);
+extern "C" ItemModel *LoadNsbTexturedModel(void *, const char *modelName, const char *textureName, unk32 param4, unk8 param5,
+                                           unk8 param6, bool param7);
 extern "C" ItemModel *LoadTreasureItemFanfare(ItemModel **, s32 treasureType, bool, bool);
 static char *sDefaultItemModel   = "key";
 static char *sItemModelNames[70] = {
@@ -391,47 +386,47 @@ static char *sItemModelNames[70] = {
     [ItemId_WoodenShield]      = "shA",
     [ItemId_Unk_5]             = NULL,
     [ItemId_Unk_6]             = "force_y",
-    [ItemId_BombBag]           = "bomb\0\0\0",
+    [ItemId_BombBag]           = "bomb",
     [ItemId_Bow]               = "bow",
     [ItemId_BigGreenRupee]     = "rupee_g",
-    [ItemId_HeartContainer]    = "heart_utu\0\0",
+    [ItemId_HeartContainer]    = "heart_utu",
     [ItemId_Unk_11]            = NULL,
-    [ItemId_Boomerang]         = "boomerang\0\0",
+    [ItemId_Boomerang]         = "boomerang",
     [ItemId_Scoop]             = "scp",
-    [ItemId_BombchuBag]        = "bomchu\0",
+    [ItemId_BombchuBag]        = "bomchu",
     [ItemId_BossKey]           = "bosskey",
     [ItemId_Unk_16]            = "rev_bin",
     [ItemId_Unk_17]            = NULL,
     [ItemId_PhantomHourglass]  = NULL,
-    [ItemId_SWSeaChart]        = "mapSea\0",
-    [ItemId_NWSeaChart]        = "mapSea\0",
-    [ItemId_SESeaChart]        = "mapSea\0",
-    [ItemId_NESeaChart]        = "mapSea\0",
+    [ItemId_SWSeaChart]        = "mapSea",
+    [ItemId_NWSeaChart]        = "mapSea",
+    [ItemId_SESeaChart]        = "mapSea",
+    [ItemId_NESeaChart]        = "mapSea",
     [ItemId_Unk_23]            = NULL,
     [ItemId_BlueRupee]         = "rupee_b",
     [ItemId_RedRupee]          = "rupee_r",
     [ItemId_BigRedRupee]       = "rupee_r",
-    [ItemId_GoldRupee]         = "rupee_go\0\0\0",
+    [ItemId_GoldRupee]         = "rupee_go",
     [ItemId_Unk_28]            = "force_y",
     [ItemId_Unk_29]            = "force_r",
     [ItemId_Unk_30]            = "force_b",
     [ItemId_Hammer]            = "ham",
-    [ItemId_Rope]              = "rope\0\0\0",
-    [ItemId_SquareCrystal]     = "cstl_c\0",
-    [ItemId_RoundCrystal]      = "cstl_s\0",
-    [ItemId_TriangleCrystal]   = "cstl_t\0",
-    [ItemId_FishingRod]        = "fp\0",
+    [ItemId_Rope]              = "rope",
+    [ItemId_SquareCrystal]     = "cstl_c",
+    [ItemId_RoundCrystal]      = "cstl_s",
+    [ItemId_TriangleCrystal]   = "cstl_t",
+    [ItemId_FishingRod]        = "fp",
     [ItemId_Cannon]            = NULL,
-    [ItemId_SunKey]            = "key_su\0",
+    [ItemId_SunKey]            = "key_su",
     [ItemId_Unk_39]            = NULL,
-    [ItemId_Quiver]            = "arrowpod\0\0\0",
-    [ItemId_BigBombBag]        = "bmbagM\0",
-    [ItemId_BigBombchuBag]     = "bcbagM\0",
+    [ItemId_Quiver]            = "arrowpod",
+    [ItemId_BigBombBag]        = "bmbagM",
+    [ItemId_BigBombchuBag]     = "bcbagM",
     [ItemId_Unk_43]            = NULL,
-    [ItemId_KingsKey]          = "key_ki\0",
-    [ItemId_PowerGem]          = "minaP\0\0",
-    [ItemId_WisdomGem]         = "minaC\0\0",
-    [ItemId_CourageGem]        = "minaY\0\0",
+    [ItemId_KingsKey]          = "key_ki",
+    [ItemId_PowerGem]          = "minaP",
+    [ItemId_WisdomGem]         = "minaC",
+    [ItemId_CourageGem]        = "minaY",
     [ItemId_PinkCoral]         = NULL,
     [ItemId_WhitePearlLoop]    = NULL,
     [ItemId_DarkPearlLoop]     = NULL,
@@ -440,44 +435,40 @@ static char *sItemModelNames[70] = {
     [ItemId_RutoCrown]         = NULL,
     [ItemId_HelmarocPlume]     = NULL,
     [ItemId_RegalRing]         = NULL,
-    [ItemId_GhostKey]          = "key_gh\0",
-    [ItemId_FreebieCard]       = "tic_tada\0\0\0",
-    [ItemId_ComplimentCard]    = "tic_ohome\0\0",
-    [ItemId_ComplimentaryCard] = "tic_rare\0\0\0",
-    [ItemId_RegalNecklace]     = "neckl\0\0",
-    [ItemId_SalvageArm]        = "slvarm\0",
+    [ItemId_GhostKey]          = "key_gh",
+    [ItemId_FreebieCard]       = "tic_tada",
+    [ItemId_ComplimentCard]    = "tic_ohome",
+    [ItemId_ComplimentaryCard] = "tic_rare",
+    [ItemId_RegalNecklace]     = "neckl",
+    [ItemId_SalvageArm]        = "slvarm",
     [ItemId_HerosNewClothes]   = NULL,
-    [ItemId_Kaleidoscope]      = "telescope\0\0",
-    [ItemId_GuardNotebook]     = "notebook\0\0\0",
-    [ItemId_JolenesLetter]     = "letter\0",
-    [ItemId_PrizePostcard]     = "card\0\0\0",
-    [ItemId_WoodHeart]         = "marron\0",
+    [ItemId_Kaleidoscope]      = "telescope",
+    [ItemId_GuardNotebook]     = "notebook",
+    [ItemId_JolenesLetter]     = "letter",
+    [ItemId_PrizePostcard]     = "card",
+    [ItemId_WoodHeart]         = "marron",
     [ItemId_PhantomSwordBlade] = "swBedge",
     [ItemId_PhantomSword]      = NULL,
 };
 static char *sItemModelNames2[8] = {
-    [ItemId_SwordsmanScroll - ItemId_SwordsmanScroll] = "makimono\0\0\0",
-    [ItemId_Crimsonine - ItemId_SwordsmanScroll]      = "hagaH\0\0",
-    [ItemId_Azurine - ItemId_SwordsmanScroll]         = "hagaK\0\0",
-    [ItemId_Aquanine - ItemId_SwordsmanScroll]        = "hagaS\0\0",
+    [ItemId_SwordsmanScroll - ItemId_SwordsmanScroll] = "makimono",
+    [ItemId_Crimsonine - ItemId_SwordsmanScroll]      = "hagaH",
+    [ItemId_Azurine - ItemId_SwordsmanScroll]         = "hagaK",
+    [ItemId_Aquanine - ItemId_SwordsmanScroll]        = "hagaS",
     [ItemId_RedPotion - ItemId_SwordsmanScroll]       = "rev_bin",
-    [ItemId_PurplePotion - ItemId_SwordsmanScroll]    = "rev_binP\0\0\0",
-    [ItemId_YellowPotion - ItemId_SwordsmanScroll]    = "rev_binY\0\0\0",
-    [ItemId_SandOfHours - ItemId_SwordsmanScroll]     = "sand_m\0",
+    [ItemId_PurplePotion - ItemId_SwordsmanScroll]    = "rev_binP",
+    [ItemId_YellowPotion - ItemId_SwordsmanScroll]    = "rev_binY",
+    [ItemId_SandOfHours - ItemId_SwordsmanScroll]     = "sand_m",
 };
 static char *sItemModelNames3[9] = {
-    [ItemId_CycloneSlate - ItemId_CycloneSlate] = "compass",
-    [ItemId_Unk_128 - ItemId_CycloneSlate]      = "lure\0\0\0",
-    [ItemId_Rupoor10 - ItemId_CycloneSlate]     = "rupee_bb\0\0\0",
-    [ItemId_Rupoor50 - ItemId_CycloneSlate]     = "rupee_bb\0\0\0",
-    [ItemId_Unk_131 - ItemId_CycloneSlate]      = NULL,
-    [ItemId_Unk_132 - ItemId_CycloneSlate]      = NULL,
-    [ItemId_Unk_133 - ItemId_CycloneSlate]      = NULL,
-    [ItemId_Unk_134 - ItemId_CycloneSlate]      = NULL,
-    [ItemId_Unk_135 - ItemId_CycloneSlate]      = NULL,
+    [ItemId_CycloneSlate - ItemId_CycloneSlate] = "compass", [ItemId_BigCatchLure - ItemId_CycloneSlate] = "lure",
+    [ItemId_Rupoor10 - ItemId_CycloneSlate] = "rupee_bb",    [ItemId_Rupoor50 - ItemId_CycloneSlate] = "rupee_bb",
+    [ItemId_Unk_131 - ItemId_CycloneSlate] = NULL,           [ItemId_Unk_132 - ItemId_CycloneSlate] = NULL,
+    [ItemId_Unk_133 - ItemId_CycloneSlate] = NULL,           [ItemId_Unk_134 - ItemId_CycloneSlate] = NULL,
+    [ItemId_Unk_135 - ItemId_CycloneSlate] = NULL,
 };
 char *sSpecialItemModelNames[7] = {
-    "mapTakara\0\0", "arrowpodL\0\0", "bmbagL\0", "bcbagL\0", "Player/get/gd_\0", ".nsbmd\0", ".nsbtx\0",
+    "mapTakara", "arrowpodL", "bmbagL", "bcbagL", "Player/get/gd_", ".nsbmd", ".nsbtx",
 };
 THUMB void ItemManager::LoadFanfareItem(ItemId id) {
     mFanfareItem = id;
@@ -521,7 +512,7 @@ THUMB void ItemManager::LoadFanfareItem(ItemId id) {
         strcat(textureName, sSpecialItemModelNames[4]);
         strcat(textureName, itemName);
         strcat(textureName, sSpecialItemModelNames[6]);
-        model = func_ov00_02079ffc(mFanfareItemModel, modelName, textureName, 0, 0, 0, true);
+        model = LoadNsbTexturedModel(mFanfareItemModel, modelName, textureName, 0, 0, 0, true);
     }
     mUnk_114->vfunc_0c(model);
 }
@@ -787,8 +778,8 @@ THUMB void ItemManager::GiveItem(ItemId id) {
             SET_FLAG(mItemFlags.flags, ItemFlag_CycloneSlate);
         } break;
 
-        case ItemId_Unk_128: {
-            SET_FLAG(mItemFlags.flags, ItemFlag_Unk_47);
+        case ItemId_BigCatchLure: {
+            SET_FLAG(mItemFlags.flags, ItemFlag_BigCatchLure);
         } break;
 
         case ItemId_Rupoor10: {
@@ -841,9 +832,6 @@ ARM s32 ItemManager::GetMaxRupees() const {
     return 9999;
 }
 
-extern void *data_027e103c;
-extern "C" s32 func_ov00_020cf374(void *param1, bool param2);
-extern "C" void func_ov05_02104004(void *param1);
 ARM void ItemManager::GiveRupees(s32 amount, bool param2) {
     s32 newRupees = mNumRupees + amount;
     if (newRupees > this->GetMaxRupees()) {
@@ -852,11 +840,11 @@ ARM void ItemManager::GiveRupees(s32 amount, bool param2) {
         newRupees = 0;
     }
 
-    s32 currRupees = func_ov00_020cf374(data_027e103c, true);
+    s32 currRupees = data_027e103c->func_ov000_020cf374(true);
     if (param2) {
         currRupees = mNumRupees;
         if (currRupees != newRupees) {
-            func_ov05_02104004(data_027e103c);
+            data_027e103c->WalletFull();
         }
     }
     mNumRupees = newRupees;
@@ -994,7 +982,7 @@ THUMB void ItemManager::LoadDungeonItemModels() {
     }
 }
 
-extern unk32 data_ov00_020eec68;
+extern unk32 data_ov000_020eec68;
 extern "C" void PlaySoundEffect(void *param1, SfxId sfx);
 THUMB void ItemManager::PlayItemFanfareSfx(ItemId item) {
     if (gItemManager->mMuteNextFanfare == true) {
@@ -1043,7 +1031,7 @@ THUMB void ItemManager::PlayItemFanfareSfx(ItemId item) {
 
         gItemManager->mFanfareSfx = SfxId_None;
     }
-    PlaySoundEffect(&data_ov00_020eec68, sfx);
+    PlaySoundEffect(&data_ov000_020eec68, sfx);
 }
 
 THUMB bool ItemManager::HasShipPartPriceShown(ShipPart part, ShipType type) const {

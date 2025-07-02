@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import sys
 import pyperclip
@@ -36,7 +36,7 @@ INCLUDE_REGEX = r'^\s*#\s*include\s*([<"][\S ]+[>"])\s*$'
 # Finds all line comments and multiline comments
 COMMENT_REGEX = r'\/\/.*$|\/\*(?:.|\r|\n)+?\*\/'
 
-with open(args.file, 'r') as f:
+with open(args.file, 'r', encoding=args.encoding) as f:
     contents = f.read()
 contents = re.sub(COMMENT_REGEX, '', contents, count=0, flags=re.MULTILINE)
 includes = re.findall(INCLUDE_REGEX, contents, flags=re.MULTILINE)

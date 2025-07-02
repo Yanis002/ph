@@ -1,39 +1,39 @@
-_ZNK11EquipHammer8IsUsableEi kind:function(arm,size=0x12c) addr:0x2198c60
-_Z16GetLinkStateItemv kind:function(arm,size=0x10) addr:0x2198d8c local
-_ZN11EquipHammer8vfunc_18Ev kind:function(arm,size=0x1c) addr:0x2198d9c
-_ZN11EquipHammer8vfunc_1cEv kind:function(arm,size=0x14) addr:0x2198db8
-_ZN11EquipHammer8vfunc_30Ev kind:function(arm,size=0x24) addr:0x2198dcc
-_ZN11EquipHammer19func_ov059_02198e90Ev kind:function(arm,size=0x2c) addr:0x2198df0
-_ZN11EquipHammer19func_ov059_02198ebcEv kind:function(arm,size=0x18) addr:0x2198e1c
-_ZN11EquipHammer19func_ov059_02198ed4Ev kind:function(arm,size=0x3c) addr:0x2198e34
-_ZN11EquipHammer19func_ov059_02198f10EP5Vec3pii kind:function(arm,size=0x98) addr:0x2198e70
-_ZN11EquipHammer19func_ov059_02198fa8Ei kind:function(arm,size=0x20) addr:0x2198f08
-_ZN11EquipHammer8vfunc_38Ei kind:function(arm,size=0x4) addr:0x2198f28
-_ZN11EquipHammer8vfunc_2cEv kind:function(arm,size=0x14) addr:0x2198f2c
-_ZN11EquipHammer19func_ov059_02198fe0Ev kind:function(arm,size=0x1c) addr:0x2198f40
-_ZN13LinkStateItem19func_ov059_02198ffcEv kind:function(arm,size=0x80) addr:0x2198f5c
-_ZN13LinkStateItem19func_ov059_0219907cEv kind:function(arm,size=0x28) addr:0x2198fdc
-_ZN13LinkStateItem19func_ov059_021990a4Ev kind:function(arm,size=0x268) addr:0x2199004
-_Z14GetEquipHammerv kind:function(arm,size=0x10) addr:0x219926c
-_ZN13LinkStateItem15StopUsingHammerEv kind:function(arm,size=0x20) addr:0x219927c
-_ZN13ActorNaviBase19func_ov059_0219933cEj kind:function(arm,size=0xd70) addr:0x219929c
-_ZN13ActorNaviBase19func_ov059_0219a0acEv kind:function(arm,size=0x95c) addr:0x219a00c
-_ZN13ActorNaviBase19func_ov059_0219aa08Ev kind:function(arm,size=0x1a0) addr:0x219a968
-_ZN13ActorNaviBase19func_ov059_0219aba8Ej kind:function(arm,size=0x36c) addr:0x219ab08
-_ZN13ActorNaviBase19func_ov059_0219af14Ev kind:function(arm,size=0xb0) addr:0x219ae74
-_ZN13ActorNaviBase19func_ov059_0219afc4Ev kind:function(arm,size=0x5c) addr:0x219af24
-_ZN13ActorNaviBase19func_ov059_0219b020Ev kind:function(arm,size=0xf0) addr:0x219af80
-data_ov059_0219b110 kind:data(any) addr:0x219b070
-data_ov059_0219b140 kind:data(any) addr:0x219b0a0
-data_ov059_0219b144 kind:data(any) addr:0x219b0a4
-data_ov059_0219b148 kind:data(any) addr:0x219b0a8
-data_ov059_0219b14c kind:data(any) addr:0x219b0ac
-data_ov059_0219b150 kind:data(any) addr:0x219b0b0
-data_ov059_0219b154 kind:data(any) addr:0x219b0b4
-data_ov059_0219b158 kind:data(any) addr:0x219b0b8
-data_ov059_0219b15c kind:data(any) addr:0x219b0bc
-data_ov059_0219b160 kind:data(any) addr:0x219b0c0
-data_ov059_0219b180 kind:data(any) addr:0x219b0e0
-data_ov059_0219b190 kind:data(any) addr:0x219b0f0
-data_ov059_0219b1a0 kind:data(any) addr:0x219b100
-data_ov059_0219b1b0 kind:data(any) addr:0x219b110
+_ZNK11EquipHammer8IsUsableEi kind:function(arm,size=0x12c) addr:0x02198c60
+_ZN11EquipHammer16GetLinkStateItemEv kind:function(arm,size=0x10) addr:0x02198d8c
+_ZN11EquipHammer8vfunc_18Ev kind:function(arm,size=0x1c) addr:0x02198d9c
+_ZN11EquipHammer8vfunc_1cEv kind:function(arm,size=0x14) addr:0x02198db8
+_ZN11EquipHammer8vfunc_30Ev kind:function(arm,size=0x24) addr:0x02198dcc
+_ZN11EquipHammer19func_ov059_02198e90Ev kind:function(arm,size=0x2c) addr:0x02198df0
+_ZN11EquipHammer19func_ov059_02198ebcEv kind:function(arm,size=0x18) addr:0x02198e1c
+_ZN11EquipHammer19func_ov059_02198ed4Ev kind:function(arm,size=0x3c) addr:0x02198e34
+_ZN11EquipHammer19func_ov059_02198f10EP5Vec3pii kind:function(arm,size=0x98) addr:0x02198e70
+_ZN11EquipHammer19func_ov059_02198fa8Ei kind:function(arm,size=0x20) addr:0x02198f08
+_ZN11EquipHammer8vfunc_38Ei kind:function(arm,size=0x4) addr:0x02198f28
+_ZN11EquipHammer8vfunc_2cEv kind:function(arm,size=0x14) addr:0x02198f2c
+_ZN11EquipHammer15IsHammerChargedEv kind:function(arm,size=0x1c) addr:0x02198f40
+_ZN13LinkStateItem19func_ov059_02198ffcEv kind:function(arm,size=0x80) addr:0x02198f5c
+_ZN13LinkStateItem19func_ov059_0219907cEv kind:function(arm,size=0x28) addr:0x02198fdc
+_ZN13LinkStateItem19func_ov059_021990a4Ev kind:function(arm,size=0x268) addr:0x02199004
+_Z14GetEquipHammerv kind:function(arm,size=0x10) addr:0x0219926c
+_ZN13LinkStateItem15StopUsingHammerEv kind:function(arm,size=0x20) addr:0x0219927c
+_ZN9ActorNavi19func_ov059_0219933cEj kind:function(arm,size=0xd70) addr:0x0219929c
+_ZN9ActorNavi19func_ov059_0219a0acEv kind:function(arm,size=0x95c) addr:0x0219a00c
+_ZN9ActorNavi19func_ov059_0219aa08Ev kind:function(arm,size=0x1a0) addr:0x0219a968
+_ZN9ActorNavi19func_ov059_0219aba8Ej kind:function(arm,size=0x36c) addr:0x0219ab08
+_ZN9ActorNavi19func_ov059_0219af14Ev kind:function(arm,size=0xb0) addr:0x0219ae74
+_ZN9ActorNavi19func_ov059_0219afc4Ev kind:function(arm,size=0x5c) addr:0x0219af24
+_ZN9ActorNavi19func_ov059_0219b020Ev kind:function(arm,size=0xf0) addr:0x0219af80
+data_ov059_0219b110 kind:data(any) addr:0x0219b070
+@1761 kind:data(any) addr:0x0219b0a0 local
+@1760 kind:data(any) addr:0x0219b0a4 local
+@1759 kind:data(any) addr:0x0219b0a8 local
+@1758 kind:data(any) addr:0x0219b0ac local
+@1757 kind:data(any) addr:0x0219b0b0 local
+@1756 kind:data(any) addr:0x0219b0b4 local
+@1755 kind:data(any) addr:0x0219b0b8 local
+@1754 kind:data(any) addr:0x0219b0bc local
+gShipParts kind:data(any) addr:0x0219b0c0 local
+data_ov059_0219b180 kind:data(any) addr:0x0219b0e0 local
+data_ov059_0219b190 kind:data(any) addr:0x0219b0f0 local
+data_ov059_0219b1a0 kind:data(any) addr:0x0219b100 local
+data_ov059_0219b1b0 kind:data(any) addr:0x0219b110 local

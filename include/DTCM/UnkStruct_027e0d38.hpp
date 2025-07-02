@@ -1,6 +1,7 @@
 #pragma once
 
 #include "global.h"
+#include "nds/math.h"
 #include "types.h"
 
 struct UnkStruct_027e0d38_UnkC {
@@ -13,8 +14,12 @@ struct UnkStruct_027e0d38_Unk28 {
     /* 00 */ unk8 mUnk_00[0x34];
     /* 34 */ bool mUnk_34;
     /* 35 */ unk8 mUnk_35[0x27];
-    /* 5c */ unk32 mUnk_5c[3];
-    /* 68 */
+    /* 5c */ Vec3p mUnk_5c;
+    /* 68 */ unk16 mUnk_68;
+    /* 6a */ unk8 mUnk_6a;
+    /* 6b */ unk8 mUnk_6b;
+    /* 6c */ unk32 mUnk_6c;
+    /* 70 */
 };
 
 struct UnkStruct_027e0d38 {

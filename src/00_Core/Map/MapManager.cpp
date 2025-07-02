@@ -139,11 +139,15 @@ extern unk32 *data_027e0f78;
 extern unk32 *data_027e0f7c;
 extern UnkStruct_027e103c *data_027e103c;
 
-extern unk32 *data_ov000_020e24a4;
+extern unk32 data_ov000_020e24a4;
+extern unk32 data_ov000_020e24b4;
+extern unk32 data_ov000_020e24c4;
 extern MapManager_Unk2 data_ov000_020e24c8[];
 extern MapManager_Unk2 data_ov000_020e24e8[];
 extern unk32 data_ov000_020eec68;
 extern unk32 data_ov015_02190458;
+
+static char *gShipParts[8] = {"anc", "bow", "hul", "can", "dco", "pdl", "fnl", "brg"};
 
 MapManager::MapManager() {
     /*MapManager_Unk1 *object;
@@ -480,7 +484,7 @@ ARM u8 MapManager::GetNumMaps() {
 }
 
 ARM s32 MapManager::func_ov00_02082914(unk32 param_2) {
-    void *pvVar1;
+    UnkStruct_027e0d38_Unk28 *pvVar1;
     int iVar3;
     int iVar4;
     int iVar5;
@@ -491,19 +495,17 @@ ARM s32 MapManager::func_ov00_02082914(unk32 param_2) {
     switch (param_2) {
         case 0xfa:
             pvVar1           = data_027e0d38->mUnk_28;
-            local_30.mPos.x  = *(int *) ((int) pvVar1 + 0x5c);
-            local_30.mPos.y  = *(int *) ((int) pvVar1 + 0x60);
-            local_30.mPos.z  = *(int *) ((int) pvVar1 + 100);
-            local_30.mAngle  = *(unk16 *) ((int) pvVar1 + 0x68);
-            local_30.mId     = *(unk8 *) ((int) pvVar1 + 0x6a);
-            local_30.mUnk_10 = *(int *) ((int) pvVar1 + 0x6c);
+            local_30.mPos    = pvVar1->mUnk_5c;
+            local_30.mAngle  = pvVar1->mUnk_68;
+            local_30.mId     = pvVar1->mUnk_6a;
+            local_30.mUnk_10 = pvVar1->mUnk_6c;
             iVar3            = this->mMap->AddEntrance(&local_30);
             return iVar3;
         case 0xfb:
         case 0xfc:
         case 0xfd:
         case 0xfe: break;
-        default: return (int) this;
+        default: goto D;
     }
     local_44.mId     = -1;
     local_44.mUnk_10 = 0;
@@ -513,33 +515,28 @@ ARM s32 MapManager::func_ov00_02082914(unk32 param_2) {
     iVar4            = 0x2000;
     iVar5            = 0xfd;
     if (this->mCourse->mType == CourseType_Sea) {
-        iVar3 = this->mMap->vfunc_88();
-        iVar3 = iVar3 + 0xa000;
-        iVar4 = this->mMap->vfunc_8c();
-        iVar4 = iVar4 + 0xa000;
+        iVar3 = this->mMap->vfunc_88() + 0xa000;
+        iVar4 = this->mMap->vfunc_8c() + 0xa000;
         iVar5 = 0xfe;
     }
     local_44.mAngle = 0;
     switch (param_2) {
         case 0xfb:
-            pVar1.z         = this->GetMapMaxZ();
-            pVar1.z         = pVar1.z - iVar4;
+            pVar1.z         = this->GetMapMaxZ() - iVar4;
             local_44.mAngle = 0x8000;
             break;
         case 0xfc:
-            pVar1.z         = this->GetMapMinZ();
-            pVar1.z         = iVar4 + pVar1.z;
+            pVar1.z         = iVar4 + this->GetMapMinZ();
             local_44.mAngle = 0;
             break;
         case 0xfd:
-            pVar1.x         = GetMapMaxX();
-            pVar1.x         = pVar1.x - iVar3;
+            pVar1.x         = GetMapMaxX() - iVar3;
             local_44.mAngle = 0xc000;
             break;
         case 0xfe:
-            pVar1.x         = GetMapMinX();
-            pVar1.x         = iVar3 + pVar1.x;
+            pVar1.x         = iVar3 + GetMapMinX();
             local_44.mAngle = 0x4000;
+            break;
     }
     local_44.mId     = (unk8) param_2;
     local_44.mPos.x  = pVar1.x;
@@ -547,6 +544,8 @@ ARM s32 MapManager::func_ov00_02082914(unk32 param_2) {
     local_44.mPos.y  = pVar1.y;
     local_44.mUnk_10 = iVar5;
     return this->mMap->AddEntrance(&local_44);
+D:
+    return (int) this;
 }
 
 ARM void MapManager::func_ov00_02082acc() {
@@ -766,9 +765,9 @@ ARM void MapManager::func_ov00_0208315c(s32 *param_2, s32 *param_3) {
 
     if (*piVar4 == -2 || piVar4 == piVar2) {
         pvVar3     = data_027e0d38->mUnk_28;
-        local_2c.x = pvVar3->mUnk_5c[0];
-        local_2c.y = pvVar3->mUnk_5c[1];
-        local_2c.z = pvVar3->mUnk_5c[2];
+        local_2c.x = pvVar3->mUnk_5c.x;
+        local_2c.y = pvVar3->mUnk_5c.y;
+        local_2c.z = pvVar3->mUnk_5c.z;
         this->func_ov00_02083298((u32) * (u8 *) (*(s32 *) data_027e0d38->mUnk_28 + 0x56), &local_2c, param_2, param_3);
         return;
     }
@@ -1293,10 +1292,9 @@ ARM s32 MapManager::func_ov00_02083ef8(Vec3p *param_2, Vec3p *param_3, bool para
 }
 
 ARM unk32 MapManager::func_ov00_02083f44(Vec3p *param_2, bool param_3) {
-    Vec3p local_18;
-
-    local_18   = *param_2;
-    local_18.y = *(data_ov000_020e24a4 + 0x8);
+    q20 x          = param_2->x;
+    q20 z          = param_2->z;
+    Vec3p local_18 = {x, data_ov000_020e24a4, z};
     return this->func_ov00_02083ef8(param_2, &local_18, param_3);
 }
 

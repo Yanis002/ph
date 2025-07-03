@@ -6,6 +6,7 @@
 #include "Actor/Actor.hpp"
 #include "Actor/ActorManager.hpp"
 #include "Actor/ActorSpawner.hpp"
+#include "DTCM/UnkStruct_027e0c68.hpp"
 #include "DTCM/UnkStruct_027e0d38.hpp"
 #include "DTCM/UnkStruct_027e0fd4.hpp"
 #include "DTCM/UnkStruct_027e103c.hpp"
@@ -54,7 +55,6 @@ extern void func_ov004_021024c4(MapManager *param_1, s32 param_2, bool param_3, 
 extern void func_ov004_02102770(s32 *param_1);
 extern void func_ov004_02102b28(s32 *param_1);
 extern void func_ov004_02102e3c(s32 *param_1);
-extern void func_ov004_02106db8(unk32 *param_1); // UnkStruct_027e0c68 doesn't exist, so using unk32
 
 extern MapBase *func_ov012_0212b358(MapBase *param_1, unk32 param_2, unk32 param_3);
 
@@ -83,20 +83,6 @@ struct astruct_16 {
     /* 28 */ unk32 mUnk_28;
     /* 2c */
 }; // What is this struct?
-
-// This might be FlagsUnk2
-struct UnkStruct_02082348 {
-    /* 00 */ unk32 mUnk_00;
-    /* 04 */ unk32 mUnk_04;
-    /* 08 */ unk32 mUnk_08;
-    /* 0c */ unk32 mUnk_0c;
-    /* 10 */ unk16 mUnk_10;
-    /* 12 */ u8 mUnk_12;
-    /* 13 */ u8 mUnk_13;
-    /* 14 */ u8 mUnk_14;
-    /* 15 */ u8 mUnk_15;
-    /* 16 */
-};
 
 struct UnkStruct_027e077c {
     /* 00 */ unk32 mUnk_00;
@@ -127,7 +113,6 @@ public:
 };
 
 extern UnkStruct_027e077c *data_027e077c;
-extern unk32 *data_027e0c68;
 extern u32 *data_027e0ce0[];
 extern UnkStruct_0202e894 *data_027e0ce4;
 extern unk32 *data_027e0d3c;
@@ -204,63 +189,49 @@ ARM void MapManager::func_ov00_020820fc(s32 param_2, unk32 param_3, unk32 param_
     this->mCourse->func_ov00_0207ca28(param_2, param_3, param_4);
 }
 
-ARM void MapManager::func_ov00_0208210c(unk32 param_2, unk32 *param_3) {
-    void *pvVar3;
-    unk32 uVar2;
-    UnkStruct_02082348 local_40[2];
+ARM void MapManager::func_ov00_0208210c(unk32 param_2, UnkStruct_0208210c_param3 *param_3) {
+    UnkStruct_02082348 local_28;
+    UnkStruct_02082348 local_40;
 
-    local_40[1].mUnk_00 = 0x47;
-    local_40[1].mUnk_04 = 0;
-    local_40[1].mUnk_08 = 0;
-    local_40[1].mUnk_0c = -2;
-    local_40[1].mUnk_10 = 0;
-    local_40[1].mUnk_12 = -1;
-    local_40[1].mUnk_13 = 0;
-    local_40[1].mUnk_14 = 0;
-    local_40[1].mUnk_15 = 0;
+    local_28.mUnk_00.mUnk_00 = 0x47;
+    local_28.mUnk_04         = 0;
+    local_28.mUnk_08         = 0;
+    local_28.mUnk_0c         = -2;
+    local_28.mUnk_10         = 0;
+    local_28.mUnk_12         = -1;
+    local_28.mUnk_13         = 0;
+    local_28.mUnk_14         = 0;
+    local_28.mUnk_15         = 0;
+
     if (param_2 != 0) {
-        *param_3                    = 0xb;
-        *(unk8 *) (param_3 + 1)     = 2;
-        *(u8 *) ((int) param_3 + 5) = 4;
+        param_3->mUnk_00 = 0xb;
+        param_3->mUnk_04 = 2;
+        param_3->mUnk_05 = 4;
     } else {
-        this->func_ov00_02082348((unk32 *) &local_40[1]);
-        *param_3                    = ((UnkStruct_027e0d38_UnkC *) &local_40[1])->func_ov000_020a5e9c();
-        *(unk8 *) (param_3 + 1)     = local_40[1].mUnk_12;
-        *(u8 *) ((int) param_3 + 5) = local_40[1].mUnk_13;
+        this->func_ov00_02082348((unk32 *) &local_28);
+        param_3->mUnk_00 = local_28.mUnk_00.func_ov000_020a5e9c();
+        param_3->mUnk_04 = local_28.mUnk_12;
+        param_3->mUnk_05 = local_28.mUnk_13;
     }
-    param_3[2]               = ((UnkStruct_027e0d38_UnkC *) ((unk32) (data_027e0d38->mUnk_28) + 0x1c))->func_ov000_020a5e9c();
-    *(u8 *) (param_3 + 4)    = *(u8 *) ((int) data_027e0d38->mUnk_28 + 0x2e);
-    *(unk16 *) (param_3 + 5) = *(unk16 *) ((int) data_027e0d38->mUnk_28 + 0x36);
-    pvVar3                   = data_027e0d38->mUnk_28;
-    param_3[6]               = *(unk32 *) ((int) pvVar3 + 0x38); // Likely Vec3p
-    param_3[7]               = *(unk32 *) ((int) pvVar3 + 0x3c);
-    param_3[8]               = *(unk32 *) ((int) pvVar3 + 0x40);
-    param_3[3]               = ((UnkStruct_027e0d38_UnkC *) ((unk32) data_027e0d38->mUnk_28 + 0x44))->func_ov000_020a5e9c();
-    *(u8 *) ((int) param_3 + 0x11)    = *(u8 *) ((int) data_027e0d38->mUnk_28 + 0x56);
-    pvVar3                            = data_027e0d38->mUnk_28;
-    param_3[9]                        = *(unk32 *) ((int) pvVar3 + 0x5c); // Likely Vec3p
-    param_3[10]                       = *(unk32 *) ((int) pvVar3 + 0x60);
-    param_3[0xb]                      = *(unk32 *) ((int) pvVar3 + 0x64);
-    *(unk16 *) ((int) param_3 + 0x16) = *(unk16 *) ((int) data_027e0d38->mUnk_28 + 0x68);
-    pvVar3                            = data_027e0d38->mUnk_28;
-    local_40[0].mUnk_00               = *(unk32 *) ((int) pvVar3 + 0x70);
-    local_40[0].mUnk_04               = *(unk32 *) ((int) pvVar3 + 0x74);
-    local_40[0].mUnk_08               = *(unk32 *) ((int) pvVar3 + 0x78);
-    local_40[0].mUnk_0c               = *(unk32 *) ((int) pvVar3 + 0x7c);
-    local_40[0].mUnk_10               = *(unk16 *) ((int) pvVar3 + 0x80);
-    local_40[0].mUnk_12               = *(u8 *) ((int) pvVar3 + 0x82);
-    local_40[0].mUnk_13               = *(u8 *) ((int) pvVar3 + 0x83);
-    local_40[0].mUnk_14               = *(u8 *) ((int) pvVar3 + 0x84);
-    local_40[0].mUnk_15               = *(u8 *) ((int) pvVar3 + 0x85);
-    uVar2                             = ((UnkStruct_027e0d38_UnkC *) &local_40[0])->func_ov000_020a5e9c();
-    param_3[0x70]                     = uVar2;
-    *(u8 *) ((int) param_3 + 0x1be)   = local_40[0].mUnk_12;
-    *(u8 *) ((int) param_3 + 0x1bf)   = local_40[0].mUnk_13;
-    func_ov000_02096324(data_027e0f70, param_3);
-    func_ov000_0209d6e8(data_027e0f7c, param_3);
+
+    param_3->mUnk_08  = data_027e0d38->mUnk_28->mUnk_1c.func_ov000_020a5e9c();
+    param_3->mUnk_10  = data_027e0d38->mUnk_28->mUnk_2e;
+    param_3->mUnk_14  = data_027e0d38->mUnk_28->mUnk_36;
+    param_3->mUnk_18  = data_027e0d38->mUnk_28->mUnk_38;
+    param_3->mUnk_0c  = data_027e0d38->mUnk_28->mUnk_44.func_ov000_020a5e9c();
+    param_3->mUnk_11  = data_027e0d38->mUnk_28->mUnk_56;
+    param_3->mUnk_24  = data_027e0d38->mUnk_28->mUnk_5c;
+    param_3->mUnk_16  = data_027e0d38->mUnk_28->mUnk_68;
+    local_40          = data_027e0d38->mUnk_28->mUnk_70;
+    param_3->mUnk_1c0 = local_40.mUnk_00.func_ov000_020a5e9c();
+    param_3->mUnk_1be = local_40.mUnk_12;
+    param_3->mUnk_1bf = local_40.mUnk_13;
+    func_ov000_02096324(data_027e0f70, (unk32 *) param_3);
+    func_ov000_0209d6e8(data_027e0f7c, (unk32 *) param_3);
+
     if (this->mCourse->mType != CourseType_TempleOfTheOceanKing) {
-        *(bool *) ((int) param_3 + 7) = this->mUnk_08;
-        *(bool *) (param_3 + 0x6f)    = this->mUnk_09;
+        param_3->mUnk_07  = this->mUnk_08;
+        param_3->mUnk_1bc = this->mUnk_09;
     }
 }
 
@@ -273,15 +244,15 @@ ARM void MapManager::func_ov00_0208230c(s32 *param_2) {
 
 ARM void MapManager::func_ov00_02082348(unk32 *param_2) {
     UnkStruct_02082348 unkStruct;
-    unkStruct.mUnk_00 = 0x47;
-    unkStruct.mUnk_04 = 0;
-    unkStruct.mUnk_08 = 0;
-    unkStruct.mUnk_0c = -2;
-    unkStruct.mUnk_10 = 0;
-    unkStruct.mUnk_12 = -1;
-    unkStruct.mUnk_13 = 0;
-    unkStruct.mUnk_14 = 0;
-    unkStruct.mUnk_15 = 0;
+    unkStruct.mUnk_00.mUnk_00 = 0x47;
+    unkStruct.mUnk_04         = 0;
+    unkStruct.mUnk_08         = 0;
+    unkStruct.mUnk_0c         = -2;
+    unkStruct.mUnk_10         = 0;
+    unkStruct.mUnk_12         = -1;
+    unkStruct.mUnk_13         = 0;
+    unkStruct.mUnk_14         = 0;
+    unkStruct.mUnk_15         = 0;
     this->func_ov00_0208230c((s32 *) &unkStruct);
     func_ov000_02078bf0((s32 *) &unkStruct, param_2);
 }
@@ -581,7 +552,7 @@ void MapManager::func_ov00_02082b3c(unk32 *param_2, Vec2b *param_3) {
         gAdventureFlags->func_ov00_020976c8();
         this->mUnk_0c = *(unk32 *) (param_2 + 0x13);
         gPlayer->TeleportToEntrance(*(unk32 *) (param_2 + 0x13), false);
-        func_ov004_02106db8(data_027e0c68);
+        data_027e0c68.func_ov004_02106db8();
         this->mMap->vfunc_18();
     } else {
         gAdventureFlags->func_ov00_020976c8();

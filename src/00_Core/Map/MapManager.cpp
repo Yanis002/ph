@@ -104,8 +104,6 @@ extern UnkStruct_0202e894 *data_027e0ce4;
 extern unk32 *data_027e0d3c;
 extern UnkStruct_027e0f68 *data_027e0f68;
 extern unk32 *data_027e0f70;
-extern UnkStruct_027e103c *data_027e103c;
-
 extern unk32 data_ov000_020e24a4;
 extern unk32 data_ov000_020e24b4;
 extern unk32 data_ov000_020e24c4;

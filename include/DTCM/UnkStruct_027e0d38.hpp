@@ -22,6 +22,8 @@ struct UnkStruct_02082348 {
     /* 14 */ u8 mUnk_14;
     /* 15 */ u8 mUnk_15;
     /* 16 */
+
+    void func_ov000_02078bf0(UnkStruct_02082348 *param_2);
 };
 
 struct UnkStruct_027e0d38_Unk28 {

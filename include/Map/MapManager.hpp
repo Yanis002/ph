@@ -72,8 +72,8 @@ public:
     void GetCourseDungeonProgress(CourseProgress *param_2);
     void func_ov00_020820fc(s32 param_2, unk32 param_3, unk32 param_4);
     void func_ov00_0208210c(unk32 param_2, UnkStruct_0208210c_param3 *param_3);
-    void func_ov00_0208230c(s32 *param_2);
-    void func_ov00_02082348(unk32 *param_2);
+    void func_ov00_0208230c(struct UnkStruct_02082348 *param_2);
+    void func_ov00_02082348(struct UnkStruct_02082348 *param_2);
     void func_ov00_020823a4(unk32 param_2);
     void func_ov00_020823b4();
     bool func_ov00_020823c4(unk32 *param_2, s32 param_3);

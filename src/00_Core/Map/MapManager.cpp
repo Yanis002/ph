@@ -1549,14 +1549,16 @@ ARM s32 MapManager::func_ov00_020846a4() {
 }
 
 ARM s32 MapManager::func_ov00_02084700() {
-    s32 iVar1;
-    iVar1 = this->mMap->mUnk_034;
+    s32 iVar1 = this->mMap->mUnk_034;
+
     if (iVar1 == -1) {
         iVar1 = this->mCourse->mUnk_0c4;
     }
-    if ((iVar1 == 0x1b) && (gActorManager->mUnk_29 != false)) {
+
+    if (iVar1 == 0x1b && gActorManager->mUnk_29) {
         iVar1 = 0x1c;
     }
+
     return iVar1;
 }
 
@@ -1624,15 +1626,16 @@ ARM unk32 MapManager::func_ov00_020847f0(unk32 type) {
     if (triggerBase == NULL) {
         return this->func_ov00_02084700();
     }
+
     if ((triggerBase->mUnk_0c != -1) && ((int) triggerBase->mUnk_0c < 0x6c)) {
         return triggerBase->mUnk_0c;
     }
+
     return this->func_ov00_02084700();
 }
 
 bool MapManager::func_ov00_02084838() {
-    unk32 uVar1 = this->GetMapData_Unk_38();
-    switch (uVar1) {
+    switch (this->GetMapData_Unk_38()) {
         case 1:
         case 2:
         case 3:
@@ -1646,19 +1649,22 @@ bool MapManager::func_ov00_02084838() {
         case 0x14:
         case 0x15:
         case 0x16: return true;
-        default: return false;
+        default: break;
     }
+
+    return false;
 }
 
 bool MapManager::func_ov00_020848b8() {
-    unk32 uVar1 = this->func_ov00_020846a4();
-    switch (uVar1) {
+    switch (this->func_ov00_020846a4()) {
         case 6:
         case 0xc:
         case 0xd:
         case 0xf:
         case 0x11: return true;
+        default: break;
     }
+
     return false;
 }
 
@@ -1687,10 +1693,10 @@ u8 MapManager::GetMapData_Unk_07() {
 }
 
 bool MapManager::func_ov00_0208499c() {
-    s32 iVar2 = this->func_ov00_020849c0();
-    if (iVar2 == 0) {
+    if (!this->func_ov00_020849c0()) {
         return this->mCourse->IsCurrentMapInMainGrid();
     }
+
     return false;
 }
 
@@ -1711,6 +1717,7 @@ ARM bool MapManager::func_ov00_020849f8() {
             }
             break;
     }
+
     return false;
 }
 
@@ -1729,15 +1736,16 @@ void MapManager::SpawnNPC(Vec3p *pos, unk32 param_3, unk32 param_4) {
 }
 
 ARM bool MapManager::func_ov00_02084ac4(u32 actorId) {
-    Actor *iVar1;
-    bool bVar1;
+    Actor *iVar1 = gActorManager->FindActorById(actorId);
 
-    iVar1 = gActorManager->FindActorById(actorId);
     if (iVar1 == NULL) {
         return false;
     }
 
-    if (iVar1->mType != ActorTypeId_EVIC) return false;
+    if (iVar1->mType != ActorTypeId_EVIC) {
+        return false;
+    }
+
     iVar1->mAlive = false;
     return true;
 }
@@ -1760,9 +1768,11 @@ bool MapManager::GetBlueWarpOpen() {
 
 ARM void MapManager::func_ov00_02084b38(u32 param_2, unk32 param_3, bool param_4) {
     MapBase *pMVar1;
+
     if (param_2 == 0) {
         return;
     }
+
     switch (param_3) {
         case 0:
             pMVar1 = this->mMap;
@@ -1780,18 +1790,19 @@ ARM void MapManager::func_ov00_02084b38(u32 param_2, unk32 param_3, bool param_4
 }
 
 bool MapManager::func_ov00_02084be0(u32 param_2, unk32 param_3) {
-    bool bVar1;
-
     if (param_2 == 0) {
         return false;
     }
+
     switch (param_3) {
         case 0: return (this->mMap->mUnk_180[param_2 >> 5].mUnk_0 & 1 << (param_2 & 0x1f)) != 0;
-        case 1: bVar1 = this->mCourse->GetMapDataFlag0(param_2); return bVar1;
-        case 2: bVar1 = this->mCourse->GetFlag0(param_2); return bVar1;
-        case 3: bVar1 = this->mCourse->SetFlag1(param_2); return bVar1;
-        default: return false;
+        case 1: return this->mCourse->GetMapDataFlag0(param_2);
+        case 2: return this->mCourse->GetFlag0(param_2);
+        case 3: return this->mCourse->SetFlag1(param_2);
+        default: break;
     }
+
+    return false;
 }
 
 void MapManager::SetMapDataFlag1(unk32 param_2, bool param_3) {
@@ -1806,16 +1817,15 @@ void MapManager::func_ov00_02084c7c(unk32 param_2, bool param_3) {
     if (param_2 < 0) {
         return;
     }
+
     this->mCourse->SetMapDataFlag2(param_2, param_3);
 }
 
 bool MapManager::func_ov00_02084c94(unk32 param_2) {
-    bool bVar1;
-
-    if (0 <= param_2) {
-        bVar1 = this->mCourse->GetMapDataFlag2(param_2);
-        return bVar1;
+    if (param_2 >= 0) {
+        return this->mCourse->GetMapDataFlag2(param_2);
     }
+
     return false;
 }
 
@@ -1823,16 +1833,15 @@ void MapManager::func_ov00_02084cb0(unk32 param_2, bool param_3) {
     if (param_2 < 0) {
         return;
     }
+
     this->mCourse->SetMapDataFlag3(param_2, param_3);
 }
 
 bool MapManager::func_ov00_02084cc8(unk32 param_2) {
-    bool bVar1;
-
-    if (0 <= param_2) {
-        bVar1 = this->mCourse->GetMapDataFlag3(param_2);
-        return bVar1;
+    if (param_2 >= 0) {
+        return this->mCourse->GetMapDataFlag3(param_2);
     }
+
     return false;
 }
 
@@ -1840,16 +1849,15 @@ void MapManager::func_ov00_02084ce4(unk32 param_2, bool param_3) {
     if (param_2 < 0) {
         return;
     }
+
     this->mCourse->SetMapDataFlag4(param_2, param_3);
 }
 
 bool MapManager::func_ov00_02084cfc(unk32 param_2) {
-    bool bVar1;
-
-    if (0 <= param_2) {
-        bVar1 = this->mCourse->GetMapDataFlag4(param_2);
-        return bVar1;
+    if (param_2 >= 0) {
+        return this->mCourse->GetMapDataFlag4(param_2);
     }
+
     return false;
 }
 

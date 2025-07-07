@@ -14,3 +14,12 @@ libs/GameSpy/serverbrowsing/sb_serverbrowsing.c:
 
 libs/GameSpy/serverbrowsing/sb_serverlist.c:
     .text       start:0x02162eac end:0x021654e8
+
+libs/GameSpy/code_021654e8.c:
+    .text       start:0x021654e8 end:0x02165898
+
+libs/GameSpy/darray.c:
+    .text       start:0x02165898 end:0x0216603c
+
+libs/GameSpy/hashtable.c:
+    .text       start:0x0216603c end:0x0216655c

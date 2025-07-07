@@ -49,6 +49,7 @@ CC_FLAGS = " ".join([
     "-gccinc",              # Interpret #include "..." and #include <...> equally
     "-nolink",              # Do not link
     "-msgstyle gcc",        # Use GCC-like messages (some IDEs will make file names clickable)
+    "-D_NITRO",             # Define current system as Nintendo DS for GameSpy
 ])
 # Passed to all modules and final arm9.o link
 LD_FLAGS = " ".join([
@@ -95,14 +96,15 @@ mwcc_path        = mwcc_root / MWCC_VERSION
 
 # Includes
 includes = [
-    root_path / "include"
+    root_path / "include",
+    libs_path / "GameSpy",
+    libs_path / "GameSpy" / "common",
 ]
 for root, dirs, _ in os.walk(libs_path):
     for dir in dirs:
         if dir == "include":
             includes.append(Path(root) / dir)
 CC_INCLUDES = " ".join(f"-i {include}" for include in includes)
-
 
 # Platform info
 platform = get_platform()

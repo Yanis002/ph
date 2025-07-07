@@ -1,6 +1,7 @@
 #ifndef NITRO_H
 #define NITRO_H
 
+#include "global.h"
 #include "types.h"
 #include <time.h>
 
@@ -52,5 +53,8 @@ void OS_CheckStack(OSThread* thread);
 void OS_WakeupThreadDirect(OSThread*);
 void OS_DestroyThread(OSThread*);
 BOOL OS_IsThreadTerminated(OSThread*);
+
+#define CLOCK_SPEED (33514000) // 33.514MHz
+#define OS_TicksToSeconds(x) (x * 64 / CLOCK_SPEED)
 
 #endif /* NITRO_H */

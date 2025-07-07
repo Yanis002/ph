@@ -29,3 +29,6 @@ libs/GameSpy/nonport.c:
 
 libs/GameSpy/common/nitro/gsTimerNitro.c:
     .text       start:0x02166cf0 end:0x02166d54
+
+libs/GameSpy/GP/gp.c:
+    .text       start:0x02166d54 end:0x02168158

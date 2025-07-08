@@ -161,12 +161,14 @@ void SBServerListSort(SBServerList *slist, SBBool ascending, SortInfo sortinfo)
 		comparator = StrNoCaseKeyCompare;
 	}
 
+#ifdef UNUSED
 	//set last used sortkey
 	if (_tcslen(slist->prevsortinfo.sortkey) == 0) //set prev to current if not initialized
 		slist->prevsortinfo = sortinfo;
 	else if (strcmp((const char *)sortinfo.sortkey, (const char *)slist->currsortinfo.sortkey) != 0)
 		slist->prevsortinfo = slist->currsortinfo; //only set new sort if different than prev
-	
+#endif
+
 	slist->currsortinfo = sortinfo;
 	slist->sortascending = ascending;
 	g_sortserverlist = slist;

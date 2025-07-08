@@ -30,5 +30,41 @@ libs/GameSpy/nonport.c:
 libs/GameSpy/common/nitro/gsTimerNitro.c:
     .text       start:0x02166cf0 end:0x02166d54
 
+libs/GameSpy/code_02166fd0.c:
+    .text       start:0x02166d54 end:0x02166fd0
+
 libs/GameSpy/GP/gp.c:
-    .text       start:0x02166d54 end:0x02168158
+    .text       start:0x02166fd0 end:0x02168158
+
+libs/GameSpy/GP/gpi.c:
+    .text       start:0x02168158 end:0x0216830c
+
+libs/GameSpy/GP/gpiBuddy.c:
+    .text       start:0x0216830c end:0x021691c8
+
+libs/GameSpy/GP/gpiBuffer.c:
+    .text       start:0x021691c8 end:0x02169c10
+
+libs/GameSpy/GP/gpiCallback.c:
+    .text       start:0x02169c10 end:0x0216a088
+
+libs/GameSpy/GP/gpiConnect.c:
+    .text       start:0x0216a088 end:0x0216b6cc
+
+libs/GameSpy/GP/gpiInfo.c:
+    .text       start:0x0216b6cc end:0x0216d4b0
+
+libs/GameSpy/GP/gpiOperation.c:
+    .text       start:0x0216d4b0 end:0x0216dacc
+
+libs/GameSpy/GP/gpiPeer.c:
+    .text       start:0x0216dacc end:0x0216ed14
+
+libs/GameSpy/GP/gpiProfile.c:
+    .text       start:0x0216ed14 end:0x021715c8
+
+libs/GameSpy/GP/gpiUtility.c:
+    .text       start:0x021715c8 end:0x02171b24
+
+libs/GameSpy/gstats/gbucket.c:
+    .text       start:0x02171b24 end:0x02172308

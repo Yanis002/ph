@@ -1,6 +1,8 @@
 #ifndef _C_STDIO_H
 #define _C_STDIO_H
 
+#include <stddef.h>
+
 #define FILENAME_MAX 256
 
 typedef struct FILE {

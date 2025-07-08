@@ -61,10 +61,16 @@ libs/GameSpy/GP/gpiPeer.c:
     .text       start:0x0216dacc end:0x0216ed14
 
 libs/GameSpy/GP/gpiProfile.c:
-    .text       start:0x0216ed14 end:0x021715c8
+    .text       start:0x0216ed14 end:0x0216f270
+
+libs/GameSpy/GP/gpiSearch.c:
+    .text       start:0x0216f270 end:0x0217139c
+
+libs/GameSpy/GP/code_0217139c.c:
+    .text       start:0x0217139c end:0x021715c8
 
 libs/GameSpy/GP/gpiUtility.c:
     .text       start:0x021715c8 end:0x02171b24
 
 libs/GameSpy/gstats/gbucket.c:
-    .text       start:0x02171b24 end:0x02172308
+    .text       start:0x02171b24 end:0x021720e0

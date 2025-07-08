@@ -265,10 +265,13 @@
 	#define NOFILE
 #endif
 
+#ifdef UNUSED
 #if defined(_PSP) || defined(_NITRO)
 	#define GS_WIRELESS_DEVICE
 #endif
+#endif
 
+#define GSI_DOMAIN_NAME "gs.nintendowifi.net"
 #if !defined(GSI_DOMAIN_NAME)
 	#define GSI_DOMAIN_NAME "gamespy.com"
 #endif

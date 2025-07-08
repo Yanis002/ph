@@ -15,7 +15,7 @@ libs/GameSpy/serverbrowsing/sb_serverbrowsing.c:
 libs/GameSpy/serverbrowsing/sb_serverlist.c:
     .text       start:0x02162eac end:0x021654e8
 
-libs/GameSpy/code_021654e8.c:
+libs/GameSpy/common/gsAvailable.c:
     .text       start:0x021654e8 end:0x02165898
 
 libs/GameSpy/darray.c:
@@ -30,7 +30,7 @@ libs/GameSpy/nonport.c:
 libs/GameSpy/common/nitro/gsTimerNitro.c:
     .text       start:0x02166cf0 end:0x02166d54
 
-libs/GameSpy/code_02166fd0.c:
+libs/GameSpy/common/gsPlatformUtil.c:
     .text       start:0x02166d54 end:0x02166fd0
 
 libs/GameSpy/GP/gp.c:
@@ -66,8 +66,11 @@ libs/GameSpy/GP/gpiProfile.c:
 libs/GameSpy/GP/gpiSearch.c:
     .text       start:0x0216f270 end:0x0217139c
 
-libs/GameSpy/GP/code_0217139c.c:
-    .text       start:0x0217139c end:0x021715c8
+libs/GameSpy/GP/gpiTransfer.c:
+    .text       start:0x0217139c end:0x021714c4
+
+libs/GameSpy/GP/gpiUnique.c:
+    .text       start:0x021714c4 end:0x021715c8
 
 libs/GameSpy/GP/gpiUtility.c:
     .text       start:0x021715c8 end:0x02171b24

@@ -74,3 +74,18 @@ libs/GameSpy/GP/gpiUtility.c:
 
 libs/GameSpy/gstats/gbucket.c:
     .text       start:0x02171b24 end:0x021720e0
+
+libs/GameSpy/gstats/gstats.c:
+    .text       start:0x021720e0 end:0x02172ed0
+
+libs/GameSpy/gt2/gt2Auth.c:
+    .text       start:0x02172ed0 end:0x021731c4
+
+libs/GameSpy/gt2/gt2Buffer.c:
+    .text       start:0x021731c4 end:0x021733e4
+
+libs/GameSpy/gt2/gt2Callback.c:
+    .text       start:0x021733e4 end:0x02173cfc
+
+libs/GameSpy/gt2/gt2Main.c:
+    .text       start:0x02173cfc end:0x02174598

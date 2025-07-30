@@ -640,7 +640,7 @@ from:0x020f45ca kind:thumb_call_arm to:0x0202e9dc module:main
 from:0x020f45d6 kind:thumb_call to:0x020fbf48 module:overlay(3)
 from:0x020f45ea kind:thumb_call to:0x0202e7a4 module:main
 from:0x020f45f4 kind:load to:0x027e0ce0 module:dtcm
-from:0x020f45f8 kind:load to:0x0211aa94 module:overlays(9,12)
+from:0x020f45f8 kind:load to:0x0211aa94 module:overlay(9)
 from:0x020f45fc kind:load to:0x027e077c module:dtcm
 from:0x020f4610 kind:thumb_call to:0x0202e7fc module:main
 from:0x020f461c kind:thumb_call to:0x021603e0 module:overlay(17)
@@ -1248,7 +1248,7 @@ from:0x020f7d28 kind:load to:0x027e1054 module:dtcm
 from:0x020f7d2c kind:load to:0x027e077c module:dtcm
 from:0x020f7ddc kind:load to:0x027e1054 module:dtcm
 from:0x020f7de0 kind:load to:0x027e077c module:dtcm
-from:0x020f7e00 kind:load to:0x0211bc64 module:overlays(9,12)
+from:0x020f7e00 kind:load to:0x0211bc64 module:overlay(9)
 from:0x020f7e3c kind:arm_call to:0x020cf0fc module:overlay(0)
 from:0x020f7e48 kind:arm_call to:0x021521e4 module:overlay(14)
 from:0x020f7e64 kind:arm_call_thumb to:0x020f4718 module:overlay(3)
@@ -1518,7 +1518,7 @@ from:0x020f9eee kind:thumb_call_arm to:0x020f9304 module:overlay(3)
 from:0x020f9f00 kind:load to:0x027e1044 module:dtcm
 from:0x020f9f04 kind:load to:0x020faea1 module:overlay(3)
 from:0x020f9f14 kind:load to:0x027e1044 module:dtcm
-from:0x020f9f18 kind:load to:0x0211366c module:overlays(9,13)
+from:0x020f9f18 kind:load to:0x0211366c module:overlay(9)
 from:0x020f9f28 kind:load to:0x027e1044 module:dtcm
 from:0x020f9f2c kind:load to:0x02113698 module:overlay(9)
 from:0x020f9f48 kind:thumb_call_arm to:0x02031024 module:main
@@ -1930,7 +1930,7 @@ from:0x020fc430 kind:load to:0x027e0cbc module:dtcm
 from:0x020fc434 kind:load to:0x027e0c68 module:dtcm
 from:0x020fc464 kind:load to:0x020fc478 module:overlay(3)
 from:0x020fc46c kind:load to:0x020fd738 module:overlay(3)
-from:0x020ff5a4 kind:load to:0x0218963c module:overlays(15,40,42)
+from:0x020ff5a4 kind:load to:0x0218963c module:overlay(42)
 from:0x020ff5c0 kind:load to:0x0211c46d module:overlay(9)
 from:0x020ff5dc kind:load to:0x02195764 module:overlays(40,52)
 from:0x020ff5f8 kind:load to:0x0217488c module:overlays(15,28)
